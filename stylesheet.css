@@ -1,0 +1,116 @@
+header{
+    background-image: url(images/header.jpeg);
+    width: 100%;
+    height: 400px;
+    color: #fff;
+}
+
+.title{
+    display:inline-block; 
+    text-shadow:5px 5px 5px #333;
+    display: flex;
+}
+h1{
+   border-bottom: 5px solid aqua; 
+   margin: 0%;
+}
+
+.subTitle{
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 35px;
+}
+.secondTitle{
+  font-size: 20px;
+  margin: 25px;  
+}
+
+nav ul{
+    display: flex;
+    margin-left: 100%;
+}
+nav ul li{
+    margin: 10px 30px;
+    list-style: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-bottom: 5px solid aqua; 
+}
+.container{
+    display: flex;
+    width: 80%;
+    margin: 20px auto;
+}
+.containerText{
+    margin: 10px;
+}
+.containerText h2{
+    font-size: 20px;
+}
+.center{
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    padding: 0 20px;
+}
+.containerText img{
+  display: block;
+  margin: 30px auto;
+}
+.about{
+    background: black;
+    color: #fff;
+}
+h2{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;  
+}
+.aboutContainer{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+.aboutContainer img{
+    display: block;
+    margin: 20px auto;
+}
+.aboutContainer dl{
+    display: block;
+    margin: 20px auto;
+    max-width: 400px;
+}
+.aboutContainer dt{
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.aboutContainer dd{
+    display: block;
+    max-width: 400px;
+}
+.functionContainer{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+.functionContainer img{
+    display: block;
+    margin: 10px auto;
+    max-width: 400px;
+}
+.functionContainer dl{
+    display: block;
+    margin: 20px auto;
+    max-width: 400px;
+}
+.functionContainer dt{
+    font-size: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.functionContainer dd{
+    display: block;
+    max-width: 400px;
+    margin: 20px auto;
+}
