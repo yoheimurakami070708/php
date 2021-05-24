@@ -1,0 +1,26 @@
+header{
+  background-image: url(images/header.png);
+  width: 100%;
+  height: 400px;
+  color: #fff;
+  text-align: center;
+}
+
+
+h1{
+ border-bottom: 5px solid aqua; 
+ margin: 0%;
+ display: inline-block;
+ margin-top: 180px;
+}
+
+header p{
+  font-size: 30px;
+  font-weight: bolder;
+}
+h2{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 20px;  
+}
