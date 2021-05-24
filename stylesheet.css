@@ -114,3 +114,34 @@ h2{
     max-width: 400px;
     margin: 20px auto;
 }
+.login p{
+    display: block;
+    margin: 10px auto;
+}
+.firstSentence{
+    max-width: 400px;
+}
+.secondSentence{
+    max-width: 300px;
+}
+.thirdSentence{
+    text-align: center;
+    
+    cursor: pointer;
+}
+
+.login button{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 5px 5px 5px black;
+    background: aqua;
+    height: 50px;
+    line-height: 2.5;
+}
