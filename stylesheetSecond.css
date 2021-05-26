@@ -24,3 +24,31 @@ h2{
   text-align: center;
   padding-top: 20px;  
 }
+.savingContainer{
+  border: 1px solid #333;
+  margin:  auto;
+  padding: 50px;
+  max-width: 600px;
+}
+.statusContainer{
+  display: flex;
+}
+.statusfirst{
+  border: 1px solid #333;
+  padding: 20px;
+  max-width: 300px;
+}
+.form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.form-group label{
+  line-height: 2.5;
+}
+.form-control{
+  width: 200px;
+  border: 0px;
+  border-bottom: 1px solid#333;
+}

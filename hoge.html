@@ -17,22 +17,96 @@
       <p>読んどこ</p>
     </header>
     <main>
+      <form id="form_test">
       <div class="status">
         <h2>Status</h2>
         <div class="statusContainer">
+          <div class="statusfirst">
+            <div id="input_value_box"></div>
+            </div>
+          </div>
+          <div class="statusSecond">
+           <h3>カレンダー</h3>
+           <canvas id="myLineChart"></canvas>
+          </div>
+          </div>
         </div>
-      </div>
-      <div class="saving">
-        <h2>Saving</h2>
-        <div class="savingContainer">
-        </div>
-      </div>
-    </main>
+        <div class="saving">
+          <h2>Saving</h2>
+          
+            <div class="savingContainer">
+              <div class="form-group">
+                <label for="name">題名</label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎" value="<?php echo $name ?>">
+                <p id="err_name"></p>
+              </div>
+              <div class="form-group">
+                <label for="time">時間</label>
+                <input type="text" name="input_value" class="form-control" id="time" placeholder="分単位で入力" value="">
+              </div>
+       
+            </div>
+          </div>
+        </form>
+        </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+    <script>
+    var ctx = document.getElementById("myLineChart");
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['8月1日', '8月2日', '8月3日', '8月4日', '8月5日', '8月6日', '8月7日'],
+        datasets: [
+          {
+            label: '最高気温(度）',
+            data: [35, 34, 37, 35, 34, 35, 34, 25],
+            borderColor: "rgba(255,0,0,1)",
+            backgroundColor: "rgba(0,0,0,0)"
+          },
+          {
+            label: '最低気温(度）',
+            data: [25, 27, 27, 25, 26, 27, 25, 21],
+            borderColor: "rgba(0,0,255,1)",
+            backgroundColor: "rgba(0,0,0,0)"
+          }
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: '気温（8月1日~8月7日）'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 40,
+              suggestedMin: 0,
+              stepSize: 10,
+              callback: function(value, index, values){
+                return  value +  '度'
+              }
+            }
+          }]
+        },
+      }
+    });
+    </script>
+    <script>
+      const formTestInputValue = document.forms.form_test.input_value; //document.formsでformの中身を取得,さらに後ろの記述で細かく指定できる
+
+
+formTestInputValue.addEventListener('input',()=>{     //formTestInputValueにinputがされたら
+  let inputValueBox  = document.getElementById('input_value_box');//input_value_boxのidを検索して
+  inputValueBox.textContent = formTestInputValue.value  //inputValueBoxのtextcontentにformTestInputValueのvalueをくっつける
+})
+    </script>
+
   </body>
 </html>
