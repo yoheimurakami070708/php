@@ -65,10 +65,11 @@
   <script>
     $(".btn").on("click",function(event){
         event.preventDefault() //同期イベントを中断
+        // formのなかにボタンが入っていると自動で動機処理になる
         $("[id^=err_]").text("");
         
     
-
+// ajaxはHTMLの一部を追加で読み込む通信法
         $.ajax({
           //送信先
           url:'./validation.php',

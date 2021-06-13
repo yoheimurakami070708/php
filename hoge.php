@@ -1,3 +1,4 @@
+<?php?>
 <!doctype html>
 <html lang="ja">
   <head>
@@ -21,10 +22,9 @@
       <div class="status">
         <h2>Status</h2>
         <div class="statusContainer">
-          <div class="statusfirst">
-            <div id="input_value_box"></div>
-            </div>
-          </div>
+         <div class="scole">
+           <div id="result"></div>
+         </div>
           <div class="statusSecond">
            <h3>カレンダー</h3>
            <canvas id="myLineChart"></canvas>
@@ -44,6 +44,7 @@
                 <label for="time">時間</label>
                 <input type="text" name="input_value" class="form-control" id="time" placeholder="分単位で入力" value="">
               </div>
+              <button type="submit" name="btn" class="btn btn-primary">記録</button>
        
             </div>
           </div>
@@ -107,6 +108,11 @@ formTestInputValue.addEventListener('input',()=>{     //formTestInputValueにinp
   inputValueBox.textContent = formTestInputValue.value  //inputValueBoxのtextcontentにformTestInputValueのvalueをくっつける
 })
     </script>
+<script>
+　$('button').click(function(){
+  $(#result).load('fuga.php');
+})
 
+</script>
   </body>
 </html>

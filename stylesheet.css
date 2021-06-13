@@ -6,38 +6,50 @@ header{
 }
 
 .title{
-    display:inline-block; 
+    display:block; 
     text-shadow:5px 5px 5px #333;
-    display: flex;
+    text-align: center;
+    margin: 10px auto;
 }
 h1{
    border-bottom: 5px solid aqua; 
+   display: inline-block;
    margin: 0%;
 }
 
 .subTitle{
     font-size: 30px;
     font-weight: bolder;
-    margin-left: 35px;
+    margin: 10px auto;
 }
 .secondTitle{
   font-size: 20px;
-  margin: 25px;  
+  margin:25px;  
 }
 
+nav{
+    margin: 0 auto;
+}
 nav ul{
     display: flex;
-    margin-left: 100%;
+    margin: 0;
+    padding: 0;
+ 
 }
 nav ul li{
-    margin: 10px 30px;
+    display:block;
+    margin: 10px auto;
+    padding: 0 15px;
     list-style: none;
     cursor: pointer;
     font-size: 20px;
     border-bottom: 5px solid aqua; 
 }
+nav ul li a{
+   color: #fff; 
+}
 .container{
-    display: flex;
+    display: block;
     width: 80%;
     margin: 20px auto;
 }
@@ -48,13 +60,13 @@ nav ul li{
     font-size: 20px;
 }
 .center{
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
+   
     padding: 0 20px;
 }
 .containerText img{
   display: block;
   margin: 30px auto;
+
 }
 .about{
     background: black;
@@ -67,7 +79,7 @@ h2{
     padding-top: 20px;  
 }
 .aboutContainer{
-    display: flex;
+    display: block;
     width: 80%;
     margin: 0 auto;
 }
@@ -90,7 +102,7 @@ h2{
     max-width: 400px;
 }
 .functionContainer{
-    display: flex;
+    display: block;
     width: 80%;
     margin: 0 auto;
 }
@@ -145,3 +157,4 @@ footer{
     height: 50px;
     line-height: 2.5;
 }
+

@@ -1,3 +1,13 @@
+<!-- 
+  header
+  ・リンクの追加
+  container
+  ・中央にボーダー
+  about
+  ・画像サイズの調整
+  ・テキストと画像の割合調整
+ -->
+
 <!doctype html>
 <html lang="ja">
   <head>
@@ -13,34 +23,34 @@
   </head>
   <body>
     <header>
-      <div class="title">
+      <div class="title d-md-flex">
         <div class="firstTitle">
           <h1>YONDOKO</h1>
-          <p class="subTitle">読んどこ</p>
+          <p class="subTitle md-m-10">読んどこ</p>
         </div>
         <div class="secondTitle">
           <p>習慣×読書＝最高の自己投資</p>
         </div>
         <nav>
           <ul>
-            <li><a>About</a></li>
-            <li><a>Function</a></li>
-            <li><a>Login</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#function">Function</a></li>
+            <li><a href="#login">Login</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main>
-      <div class="container">
+      <div class="container d-md-flex">
         <div class="containerText">
           <h2>①本を読む</h2>
           <img src="images/container1.png" alt="本を読む人">
           <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </div>
         <div class="containerText center">
-          <h2>②記録</h2>
-          <img src="images/container2.png" alt="メモ">
-          <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <h2>②記録</h2>
+            <img src="images/container2.png" alt="メモ">
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </div>
         <div class="containerText">
           <h2>③レベルアップ</h2>
@@ -49,34 +59,42 @@
         </div>
       </div>
       <div class="about">
-        <h2>About</h2>
-        <div class="aboutContainer">
-         <img src="images/about.png">
-         <dl>
-           <dt>読書とは</dt>
-           <dd>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</dd>
-         </dl>
+        <h2><a id="about">About</a></h2>
+        <div class="mb-5 row">
+          <div class="col-sm-7">
+            <img src="images/about.png" class="w-100 rounded-circle">
+          </div>
+          <div class="col-sm-5">
+            <h3>読書とは</h3>
+            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          </div>
         </div>
       </div>
-      <div class="function">
-       <h2>Function</h2>
-       <div class="functionContainer">
-        <img src="images/function1.png" alt="カレンダー">
-        <di>
-          <dt>カレンダー機能</dt>
-          <dd>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</dd>
-        </di>
-       </div>
-       <div class="functionContainer">
-         <di>
-           <dt>カレンダー機能</dt>
-           <dd>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</dd>
-          </di>
-          <img src="images/function2.png" alt="グラフ">
-       </div>
+      <div class="w-80　function">
+       <h2 class="text-center"><a>Function</a></h2>
+        <div class="container">
+          <div class="mb-5 row">
+            <div class="col-sm-8">
+              <h3>カレンダー機能</h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </div>
+            <div class="col-sm-4">
+              <img src="images/function1.png" class="w-100 rounded-circle">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8 order-sm-2">
+              <h3>グラフで進捗管理</h3>
+              <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            </div>
+            <div class="col-sm-4 order-sm-1">
+              <img src="images/function2.png" class="w-100 rounded-circle">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="login"> 
-       <h2>Login</h2>
+       <h2><a id="login">Login</a></h2>
        <p class="firstSentence">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
        <p class="secondSentence">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
        <button type="submit" name="btn" class="btn  bg-info text-white formBtn">ログイン</button>
