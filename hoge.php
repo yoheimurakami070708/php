@@ -22,7 +22,28 @@
       <div class="status">
         <h2>Status</h2>
         <div class="statusContainer">
+          <!-- 題名・時間・ページ数・冊数・メモの記入欄を出力 -->
+          <!-- 時間 -->
+          <!-- 分単位で入力 -->
+          <!-- １分１ポイント -->
+          <!-- ページ数 -->
+          <!-- １ページ１ポイント -->
+          <!-- 冊数 -->
+          <!-- 1冊５ポイント -->
+          <!-- 項目全て入力したらボーナス１０ポイント -->
+
+          <!-- 階層 -->
+          <!-- ０〜1200はダメ人間 -->
+          <!-- 1201〜4000はたまに読みます -->
+          <!-- 4001〜8000は読書家 -->
+          <!-- 8001〜12000は本の虫 -->
+          <!-- それ以降は歩く図書館 -->
+          <!-- 条件分岐php基礎文法１４ -->
+
+
+          
          <div class="scole">
+           <h3>累計時間</h3>
            <div id="result"></div>
          </div>
           <div class="statusSecond">
@@ -33,18 +54,17 @@
         </div>
         <div class="saving">
           <h2>Saving</h2>
-          
+          <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
+          <!-- 記入し送信された値をstatusContainerに送る -->
+
             <div class="savingContainer">
               <div class="form-group">
-                <label for="name">題名</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎" value="<?php echo $name ?>">
-                <p id="err_name"></p>
+                <p>
+                  <input type="text" name="name" id="name">
+                  <input type="button" id="greet" value="Greet!">
+                </p>
               </div>
-              <div class="form-group">
-                <label for="time">時間</label>
-                <input type="text" name="input_value" class="form-control" id="time" placeholder="分単位で入力" value="">
-              </div>
-              <button type="submit" name="btn" class="btn btn-primary">記録</button>
+              
        
             </div>
           </div>
@@ -57,62 +77,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-
     <script>
-    var ctx = document.getElementById("myLineChart");
-    var myLineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['8月1日', '8月2日', '8月3日', '8月4日', '8月5日', '8月6日', '8月7日'],
-        datasets: [
-          {
-            label: '最高気温(度）',
-            data: [35, 34, 37, 35, 34, 35, 34, 25],
-            borderColor: "rgba(255,0,0,1)",
-            backgroundColor: "rgba(0,0,0,0)"
-          },
-          {
-            label: '最低気温(度）',
-            data: [25, 27, 27, 25, 26, 27, 25, 21],
-            borderColor: "rgba(0,0,255,1)",
-            backgroundColor: "rgba(0,0,0,0)"
-          }
-        ],
-      },
-      options: {
-        title: {
-          display: true,
-          text: '気温（8月1日~8月7日）'
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              suggestedMax: 40,
-              suggestedMin: 0,
-              stepSize: 10,
-              callback: function(value, index, values){
-                return  value +  '度'
-              }
-            }
-          }]
-        },
-      }
-    });
+        $(function() {
+            $('#greet').click(function() {
+                
+                $.get('fuga.php', {
+                    name: $('#name').val()
+                }, function(data) {
+                    $('#result').html(data.message + '(' + data.length + ')');
+                });
+
+            });
+
+        });
     </script>
-    <script>
-      const formTestInputValue = document.forms.form_test.input_value; //document.formsでformの中身を取得,さらに後ろの記述で細かく指定できる
+    
 
-
-formTestInputValue.addEventListener('input',()=>{     //formTestInputValueにinputがされたら
-  let inputValueBox  = document.getElementById('input_value_box');//input_value_boxのidを検索して
-  inputValueBox.textContent = formTestInputValue.value  //inputValueBoxのtextcontentにformTestInputValueのvalueをくっつける
-})
-    </script>
-<script>
-　$('button').click(function(){
-  $(#result).load('fuga.php');
-})
-
-</script>
+ 
   </body>
 </html>
