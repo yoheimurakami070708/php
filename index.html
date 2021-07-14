@@ -136,54 +136,46 @@
         <!-- 最初の１冊 -->
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
           <h2>First reading</h2>
-          <div class="text-center">
-           <p class="mw-300">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-           <div class="dropdown">
-             <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               性別を選択してください
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">男性</a>
-                <a class="dropdown-item" href="#">女性</a>
-                <a class="dropdown-item" href="#">その他</a>
+            <p class="w-50 p-3">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <form>
+              <div class="form-group">
+                <label for="inputState">性別を選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>男性</option>
+                  <option>女性</option>
+                  <option>その他</option>
+                </select>
               </div>
-            </div>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                年齢を選択してください
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">10代</a>
-                <a class="dropdown-item" href="#">20代</a>
-                <a class="dropdown-item" href="#">30代</a>
-                <a class="dropdown-item" href="#">40代</a>
-                <a class="dropdown-item" href="#">50代</a>
+              <div class="form-group">
+                <label for="inputState">年齢を選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>10代</option>
+                  <option>20代</option>
+                  <option>30代</option>
+                  <option>40代</option>
+                  <option>50代</option>
+                </select>
               </div>
-            </div>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                好きなジャンルを選択してください
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">健康・運動</a>
-                <a class="dropdown-item" href="#">お金・ビジネス</a>
-                <a class="dropdown-item" href="#">自己啓発</a>
-                <a class="dropdown-item" href="#">小説</a>
+              <div class="form-group">
+                <label for="inputState">好きなジャンルを選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>ビジネス</option>
+                  <option>お金</option>
+                  <option>健康</option>
+                  <option>自己啓発</option>
+                </select>
               </div>
-            </div>
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                読書歴を教えてください
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">読んだことがない</a>
-                <a class="dropdown-item" href="#">1〜３年</a>
-                <a class="dropdown-item" href="#">3年以上</a>
+              <div class="form-group">
+                <label for="inputState">読書歴を教えてください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>1年未満</option>
+                  <option>1〜3年</option>
+                  <option>3年以上</option>
+                </select>
               </div>
-            </div>
-          </div>
-            <button type="button" class="btn btn-info">Info</button>
-          </div>
+              <button type="submit" class="btn btn-info">Go</button>
+            </form>
+        </div>
         <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
           <div>
             <h2>youtube Channel</h2>

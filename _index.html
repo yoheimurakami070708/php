@@ -41,10 +41,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">login</a>
+            <a class="nav-link" href="#">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">join</a>
+            <a class="nav-link" href="#">Join</a>
           </li>
         </ul>
       </div>
@@ -135,61 +135,53 @@
         </div>
         <!-- 最初の１冊 -->
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
-          <div>
-            <h2>First reading</h2>
-           <p class="firstSentence">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle btn-lg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              性別を選択してください
-            </button>
-            <div class="dropdown-menu" id="sex" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" id="sex1" value="男性">男性</a>
-              <a class="dropdown-item" id="sex2" value="">女性</a>
-              <a class="dropdown-item" id="sex3" value="">その他</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              年齢を選択してください
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">10代</a>
-              <a class="dropdown-item" href="#">20代</a>
-              <a class="dropdown-item" href="#">30代</a>
-              <a class="dropdown-item" href="#">40代</a>
-              <a class="dropdown-item" href="#">50代</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              好きなジャンルを選択してください
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">健康・運動</a>
-              <a class="dropdown-item" href="#">お金・ビジネス</a>
-              <a class="dropdown-item" href="#">自己啓発</a>
-              <a class="dropdown-item" href="#">小説</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle mw-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              読書歴を教えてください
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">読んだことがない</a>
-              <a class="dropdown-item" href="#">1〜３年</a>
-              <a class="dropdown-item" href="#">3年以上</a>
-            </div>
-          </div>
-          <button type="button" class="btn btn-info">Info</button>
+          <h2>First reading</h2>
+            <p class="w-50 p-3">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <form action="" method="GET" name="firstReading">
+              <div class="form-group"　id="sex">
+                <label for="inputState">性別を選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected value="男性">男性</option>
+                  <option　value="女性">女性</option>
+                  <option　value="その他">その他</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputState">年齢を選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>10代</option>
+                  <option>20代</option>
+                  <option>30代</option>
+                  <option>40代</option>
+                  <option>50代</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputState">好きなジャンルを選択してください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>ビジネス</option>
+                  <option>お金</option>
+                  <option>健康</option>
+                  <option>自己啓発</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputState">読書歴を教えてください</label>
+                <select id="inputState" class="form-control col-3">
+                  <option selected>1年未満</option>
+                  <option>1〜3年</option>
+                  <option>3年以上</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-info" id="button1">Go</button>
+            </form>
         </div>
         <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
           <div>
             <h2>youtube Channel</h2>
            <p class="firstSentence">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
            <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
+            <div class="row no-gutters ">
               <div class="col-md-4">
                 <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
               </div>
@@ -331,7 +323,7 @@
     </main>
     <div class="card bg-info text-white">
       <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Card image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
-      <div class="card-img-overlay">
+      <div class="card-img-overlay bg-info">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p class="card-text">Last updated 3 mins ago</p>
@@ -345,5 +337,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="jquery.js"></script>
     <script src="main.js"></script>
+    <script>
+      let inputState = document.getElementById('inputState');
+      let button1 = document.getElementById('button1');
+
+      button1.addEventListener('click',(e)=>{
+        e.preventDefault();
+
+        if(inputState){
+
+        }else{
+
+        }
+      }) 
+    </script>
   </body>
   </html>
