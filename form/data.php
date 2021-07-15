@@ -1,13 +1,11 @@
 <?php
 
-session_start();
-session_regenerate_id();
 
-$name = post("name");
-$email = post("email");
-$date = post("date");
-$password = post("password");
-$token = post("token");
+$sex = post("sex");
+$age = post("age");
+$category = post("category");
+$history = post("history");
+
 
 
 

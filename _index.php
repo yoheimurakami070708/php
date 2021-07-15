@@ -1,3 +1,7 @@
+<?php
+  require_once "./data.php";
+?>
+
 
 <!doctype html>
 <html lang="ja">
@@ -136,19 +140,19 @@
         <!-- 最初の１冊 -->
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
           <h2>First reading</h2>
-            <p class="w-50 p-3">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-            <form action="" method="GET" name="firstReading">
-              <div class="form-group"　id="sex">
+            <p class="mx-auto" style="max-width: 600px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <form action="" method="POST" name="firstReading">
+              <div class="form-group mx-auto" style="max-width: 400px;"　id="sex">
                 <label for="inputState">性別を選択してください</label>
-                <select id="inputState" class="form-control col-3">
+                <select id="inputState" class="form-control" name="sex">
                   <option selected value="男性">男性</option>
                   <option　value="女性">女性</option>
                   <option　value="その他">その他</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="form-group mx-auto" style="max-width: 400px;" id="age">
                 <label for="inputState">年齢を選択してください</label>
-                <select id="inputState" class="form-control col-3">
+                <select id="inputState" class="form-control" name="age">
                   <option selected>10代</option>
                   <option>20代</option>
                   <option>30代</option>
@@ -156,18 +160,18 @@
                   <option>50代</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="form-group mx-auto" style="max-width: 400px;" id="category">
                 <label for="inputState">好きなジャンルを選択してください</label>
-                <select id="inputState" class="form-control col-3">
+                <select id="inputState" class="form-control" name="category">
                   <option selected>ビジネス</option>
                   <option>お金</option>
                   <option>健康</option>
                   <option>自己啓発</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="form-group mx-auto" style="max-width: 400px;" id="history">
                 <label for="inputState">読書歴を教えてください</label>
-                <select id="inputState" class="form-control col-3">
+                <select id="inputState" class="form-control" name="history">
                   <option selected>1年未満</option>
                   <option>1〜3年</option>
                   <option>3年以上</option>
@@ -338,18 +342,32 @@
     <script src="jquery.js"></script>
     <script src="main.js"></script>
     <script>
-      let inputState = document.getElementById('inputState');
-      let button1 = document.getElementById('button1');
+      $(".btn").on("click",function(event){
+        event.preventDefault() 
+// ajaxはHTMLの一部を追加で読み込む通信法
+        $.ajax({
+          //送信先
+          url:'#',
+          //送信方法
+          type:'POST',
+          //データの種類
+          dataType:'json',
+          //データ
+          data: {
+            "sex":$("#sex").val(),
+            "age":$("#age").val(),
+            "category":$("#category").val(),
+            "history":$("#history").val(),
+          }
+        })
+        .done((data) => {
+        
+        })
+        .fail((data) => {
+            alert("失敗")
+        })
 
-      button1.addEventListener('click',(e)=>{
-        e.preventDefault();
-
-        if(inputState){
-
-        }else{
-
-        }
-      }) 
+    });
     </script>
   </body>
   </html>
