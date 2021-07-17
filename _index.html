@@ -332,7 +332,9 @@
            category: $('#category').val(),
            history: $('#history').val()
          },function(data){
-           $('#recommend').html(data.)
+           if(sex === "男性" && age === "10代"){
+             $('#recommend').textContent = ""
+           }
          })
        })
      })

@@ -1,16 +1,14 @@
 <?php
 
+$result =array(
+  "sex" => htmlspecialchars($_GET['sex'],ENT_QUOTES,"utf-8"),
+  "age" => htmlspecialchars($_GET['age'],ENT_QUOTES,"utf-8"),
+  "category" => htmlspecialchars($_GET['category'],ENT_QUOTES,"utf-8"),
+  "history" => htmlspecialchars($_GET['history'],ENT_QUOTES,"utf-8")
+);
 
-$sex = htmlspecialchars($_GET['sex']);
-$age = htmlspecialchars($_GET['age']);
-$category = htmlspecialchars($_GET['category']);
-$history = htmlspecialchars($_GET['history']);
 
-$result =" ";
 
-if($sex == "男性"　&& $age == "10代"){
-  echo $result="1"
-}
 echo json_decode($result);
 
 header('Content-Type: application/json; charset=utf-8');
