@@ -1,6 +1,3 @@
-<?php
-  require_once "./data.php";
-?>
 
 
 <!doctype html>
@@ -140,9 +137,9 @@
         <!-- 最初の１冊 -->
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
           <h2>First reading</h2>
-            <p class="mx-auto" style="max-width: 600px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-            <form action="" method="POST" name="firstReading">
-              <div class="form-group mx-auto" style="max-width: 400px;"　id="sex">
+            <p class="mx-auto mt-3" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+            <form action="" method="get$get" name="firstReading">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;"　id="sex">
                 <label for="inputState">性別を選択してください</label>
                 <select id="inputState" class="form-control" name="sex">
                   <option selected value="男性">男性</option>
@@ -150,7 +147,7 @@
                   <option　value="その他">その他</option>
                 </select>
               </div>
-              <div class="form-group mx-auto" style="max-width: 400px;" id="age">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="age">
                 <label for="inputState">年齢を選択してください</label>
                 <select id="inputState" class="form-control" name="age">
                   <option selected>10代</option>
@@ -160,7 +157,7 @@
                   <option>50代</option>
                 </select>
               </div>
-              <div class="form-group mx-auto" style="max-width: 400px;" id="category">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="category">
                 <label for="inputState">好きなジャンルを選択してください</label>
                 <select id="inputState" class="form-control" name="category">
                   <option selected>ビジネス</option>
@@ -169,7 +166,7 @@
                   <option>自己啓発</option>
                 </select>
               </div>
-              <div class="form-group mx-auto" style="max-width: 400px;" id="history">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="history">
                 <label for="inputState">読書歴を教えてください</label>
                 <select id="inputState" class="form-control" name="history">
                   <option selected>1年未満</option>
@@ -177,15 +174,16 @@
                   <option>3年以上</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-info" id="button1">Go</button>
+              <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="button1">Go</button>
             </form>
+            <div id="recommend"></div>
         </div>
         <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
           <div>
             <h2>youtube Channel</h2>
-           <p class="firstSentence">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-           <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters ">
+           <p class="firstSentence mx-auto mt3"style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+           <div class="card mb-3 mx-auto mt-3" style="max-width: 540px;">
+            <div class="row no-gutters">
               <div class="col-md-4">
                 <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
               </div>
@@ -197,7 +195,7 @@
                 </div>
               </div>
             </div>
-            <div class="row no-gutters">
+            <div class="row no-gutters  mb-3 mx-auto mt-3" style="max-width=: 540px;">
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -214,6 +212,8 @@
         </div>
         <!-- 読書セット -->
         <div class="tab-pane fade" id="nav-item" role="tabpanel" aria-labelledby="nav-item-tab">
+          <h2>Reading Item</h2>
+             <p class="firstSentence mx-auto mt3"style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
           <div class="card-group">
             <div class="card">
               <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
@@ -255,7 +255,7 @@
               <div class="containerText">
                 <h2>最初の１冊</h2>
                 <img src="images/menu1.png" alt="本を読む人">
-                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                <p class="mx-auto" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
               </div>
             </div>
             <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
@@ -270,7 +270,7 @@
               <div class="containerText center">
                 <h2>要約サイト</h2>
                 <img src="images/menu2.png" alt="youtube">
-                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                <p class="mx-auto" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
               </div>
             </div>
             <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
@@ -285,7 +285,7 @@
               <div class="containerText center">
                 <h2>読書セット</h2>
                 <img src="images/menu3.png" alt="道具">
-                <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                <p class="mx-auto" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
               </div>
             </div>
             <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
@@ -305,25 +305,6 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-
-      <!-- <div class="container d-md-flex wrap　menu">
-        <div class="containerText">
-          <h2>最初の１冊</h2>
-          <img src="images/menu1.png" alt="本を読む人">
-          <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-        </div>
-        <div class="containerText center">
-            <h2>要約サイト</h2>
-            <img src="images/menu2.png" alt="youtube">
-            <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-        </div>
-        <div class="containerText">
-          <h2>読書セット</h2>
-          <img src="images/menu3.png" alt="道具">
-          <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-        </div>
-      </div> -->
-  
     </main>
     <div class="card bg-info text-white">
       <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Card image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
@@ -342,32 +323,19 @@
     <script src="jquery.js"></script>
     <script src="main.js"></script>
     <script>
-      $(".btn").on("click",function(event){
-        event.preventDefault() 
-// ajaxはHTMLの一部を追加で読み込む通信法
-        $.ajax({
-          //送信先
-          url:'#',
-          //送信方法
-          type:'POST',
-          //データの種類
-          dataType:'json',
-          //データ
-          data: {
-            "sex":$("#sex").val(),
-            "age":$("#age").val(),
-            "category":$("#category").val(),
-            "history":$("#history").val(),
-          }
-        })
-        .done((data) => {
-        
-        })
-        .fail((data) => {
-            alert("失敗")
-        })
-
-    });
+     $(function () {
+       $('#btn1').click(function(){
+         let reccommend = document.getElementById('#recommend');
+         $get('data.php',{
+           sex: $('#sex').val(),
+           age: $('#age').val(),
+           category: $('#category').val(),
+           history: $('#history').val()
+         },function(data){
+           $('#recommend').html(data.)
+         })
+       })
+     })
     </script>
   </body>
   </html>

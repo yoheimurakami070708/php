@@ -1,29 +1,26 @@
 <?php
 
 
-$sex = post("sex");
-$age = post("age");
-$category = post("category");
-$history = post("history");
+$sex = htmlspecialchars($_GET['sex']);
+$age = htmlspecialchars($_GET['age']);
+$category = htmlspecialchars($_GET['category']);
+$history = htmlspecialchars($_GET['history']);
 
+$result =" ";
 
-
-
-
-
-/**
- * postをサニタイズ化して返却。値が無ければNULLを返却
- * ＠param $key string POSTのキー
- * ＠return string or null
- */
-function post($key){
- if(empty($_POST[$key])){
-   return NULL;
- }
-if(is_array($_POST[$key])){
-  return array_map("myhtmlspecialchars",$_POST[$key]);
+if($sex == "男性"　&& $age == "10代"){
+  echo $result="1"
 }
-return htmlspecialchars($_POST[$key]);
-}
+echo json_decode($result);
+
+header('Content-Type: application/json; charset=utf-8');
+
+
+
+
+
+
+
+
 
 
