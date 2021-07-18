@@ -181,8 +181,6 @@ h2{
     margin: 0 auto;
     text-align: center;
 }
-
-
 .containerText,.p_scroll,.f1_scroll,.f2_scroll,.firstSentence,.secondSentence{
     opacity: 0;
     position: relative;
@@ -196,5 +194,9 @@ h2{
 .thirdSentence{
     opacity: 0;
 }
-
-
+/* 最初の１冊 */
+#fr{
+    width: 200px;
+    height: 200px;
+    margin: 5px auto;
+}
