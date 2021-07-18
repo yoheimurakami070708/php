@@ -10,12 +10,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheetSecond.css">
 
-    <title>Hello, world!</title>
+    <title>マイページ</title>
   </head>
   <body>
     <header>
-      <h1>YONDOKO</h1>
-      <p>読んどこ</p>
+      <div class="title">
+        <div class="firstTitle">
+          <h1>MYYONDOYO</h1>
+          <p class="subTitle md-m-10">まい読んどこ</p>
+        </div>
+        <div class="secondTitle">
+          <p>習慣×読書＝最高の自己投資</p>
+        </div>
+      </div>
     </header>
     <main>
       <form id="form_test">
@@ -57,14 +64,28 @@
           <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
           <!-- 記入し送信された値をstatusContainerに送る -->
 
-            <div class="savingContainer">
-              <div class="form-group">
-                <p>
-                  <input type="text" name="name" id="name">
-                  <input type="button" id="greet" value="Greet!">
-                </p>
-              </div>
-              
+            <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
+              　　<form method="GET" action="" >
+                <div class="form-group">
+                  <label for="name">題名</label>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎">
+                </div>
+                <div class="form-group">
+                  <label for="time">時間</label>
+                  <input type="time" name="time" class="form-control" id="time" placeholder="分単位で記入してください">
+                </div>
+                <div class="form-group">
+                  <label for="page">ページ数</label>
+                  <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください">
+                </div>
+                <div class="form-group">
+                  <label for="book">冊数</label>
+                  <input type="book" name="book" class="form-control" id="book" placeholder="読んだ冊数を記入してください">
+                </div>
+                <button type="submit" name="btn" class="btn btn-info mx-auto" style="max-width: 100px;">Submit</button>
+            
+              </form>
+            
        
             </div>
           </div>

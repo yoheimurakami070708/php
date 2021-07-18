@@ -138,7 +138,7 @@
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
           <h2>First reading</h2>
             <p class="mx-auto mt-3" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-            <form action="" method="get$get" name="firstReading">
+            <form action="data.php" method="get" name="firstReading">
               <div class="form-group mx-auto mt-3" style="max-width: 400px;"　id="sex">
                 <label for="inputState">性別を選択してください</label>
                 <select id="inputState" class="form-control" name="sex">
@@ -325,7 +325,7 @@
     <script>
      $(function () {
        $('#btn1').click(function(){
-         let reccommend = document.getElementById('#recommend');
+         let recommend = document.getElementById('#recommend');
          $get('data.php',{
            sex: $('#sex').val(),
            age: $('#age').val(),

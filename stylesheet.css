@@ -26,8 +26,9 @@ h1{
    padding: 0;
 }
 .title{
+    text-align: center;
     position: relative;
-    top: 28px;
+    top: 150px;
 }
 .firstTitle{
     z-index: 2;
@@ -47,9 +48,9 @@ h1{
 }
 .subTitle{
     font-size: 15px;
-    font-weight: bolder;
-    margin: 0 8px;
-    letter-spacing: 40px;
+    letter-spacing: 42px;
+    text-indent: 40px;
+    margin: 0;
 }
 .secondTitle{
     font-size: 20px;
