@@ -17,9 +17,6 @@ if (empty($email)) {
 } else if (!empty($email) && ! filter_var($email,FILTER_VALIDATE_EMAIL)) {
     $error["email"] = "Emailを正しく入力してください。";
 }
-if (empty($date)) {
-    $error["date"] = "生年月日を入力してください。";
-}
 
 if (empty($password)) {
     $error["password"] = "パスワードを入力してください。";

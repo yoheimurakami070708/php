@@ -28,7 +28,7 @@
     <form method="POST" action="./confirm.php" class="container mx-auto mt-5">
       <input type="hidden" id="token" name="token" value="<?php echo $token ?>">
       <div class="form-group">
-        <label for="name">お名前</label>
+        <label for="name">ユーザー名</label>
         <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎" value="<?php echo $name ?>">
         <p id="err_name"></p>
       </div>
@@ -38,13 +38,6 @@
         <input type="email" name="email" class="form-control" id="email" placeholder="info@test.jp" value="<?php echo $email ?>">
         <p id="err_email"></p>
       </div>
-
-      <div class="form-group">
-        <label for="date">年/月/日</label>
-        <input type="date" name="date" class="form-control" id="date" placeholder="年/月/日" value="<?php echo $date ?>">
-        <p id="err_date"></p>
-      </div>
-
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" class="form-control" id="password" placeholder="password" value="<?php echo $password ?>">
@@ -82,7 +75,6 @@
             "token":$("#token").val(),
             "name":$("#name").val(),
             "email":$("#email").val(),
-            "date":$("#date").val(),
             "password":$("#password").val(),
        
           }
@@ -90,7 +82,7 @@
         .done((data) => {
             if (data == 1) {
               //確認画面へ遷移する
-              $("form").attr("action","./confirm.php");
+              $("form").attr("action","./hoge.php");
               $("form").submit();
             } else {
               $.each(data,function(key,val) {

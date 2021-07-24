@@ -19,7 +19,8 @@
 <!-- ナビゲーションバー -->    
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <a class="navbar-brand" href="#">Menu</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-tarPOST="
+      url:#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -134,22 +135,27 @@
            <p class="thirdSentence">新規登録はこちら←</p>
           </div>
         </div>
+
+
+
+
+
         <!-- 最初の１冊 -->
         <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
           <h2>First reading</h2>
             <p class="mx-auto mt-3" style="max-width: 400px;">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-            <form action="data.php" method="get" name="firstReading">
-              <div class="form-group mx-auto mt-3" style="max-width: 400px;"　id="sex">
+            <form　method="POST" action="data.php">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;">
                 <label for="inputState">性別を選択してください</label>
-                <select id="inputState" class="form-control" name="sex">
-                  <option selected value="男性">男性</option>
-                  <option　value="女性">女性</option>
-                  <option　value="その他">その他</option>
+                <select id="sex" class="form-control" name="sex">
+                  <option selected>男性</option>
+                  <option>女性</option>
+                  <option>その他</option>
                 </select>
               </div>
-              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="age">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;">
                 <label for="inputState">年齢を選択してください</label>
-                <select id="inputState" class="form-control" name="age">
+                <select id="age" class="form-control" name="age">
                   <option selected>10代</option>
                   <option>20代</option>
                   <option>30代</option>
@@ -157,26 +163,26 @@
                   <option>50代</option>
                 </select>
               </div>
-              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="category">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;">
                 <label for="inputState">好きなジャンルを選択してください</label>
-                <select id="inputState" class="form-control" name="category">
+                <select id="category" class="form-control" name="category">
                   <option selected>ビジネス</option>
                   <option>お金</option>
                   <option>健康</option>
                   <option>自己啓発</option>
                 </select>
               </div>
-              <div class="form-group mx-auto mt-3" style="max-width: 400px;" id="history">
+              <div class="form-group mx-auto mt-3" style="max-width: 400px;">
                 <label for="inputState">読書歴を教えてください</label>
-                <select id="inputState" class="form-control" name="history">
+                <select id="history" class="form-control" name="history">
                   <option selected>1年未満</option>
                   <option>1〜3年</option>
                   <option>3年以上</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="button1">Go</button>
+              <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="btn1">Go</button>
             </form>
-            <div id="recommend"></div>
+            <div id="recommend" class="container mx-auto mt-5 text-center" style="max-width: 400px; height: auto;"></div>
         </div>
         <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
           <div>
@@ -195,7 +201,7 @@
                 </div>
               </div>
             </div>
-            <div class="row no-gutters  mb-3 mx-auto mt-3" style="max-width=: 540px;">
+            <div class="row no-gutters  mb-3 mx-auto mt-3" style="max-width: 540px;">
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -245,9 +251,12 @@
       <!-- スライドメニュー -->
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-tarPOST="
+          url:#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-tarPOST="
+          url:#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-tarPOST="
+          url:#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -324,20 +333,28 @@
     <script src="main.js"></script>
     <script>
      $(function () {
-       $('#btn1').click(function(){
-         let recommend = document.getElementById('#recommend');
-         $get('data.php',{
-           sex: $('#sex').val(),
-           age: $('#age').val(),
-           category: $('#category').val(),
-           history: $('#history').val()
-         },function(data){
-           if(sex === "男性" && age === "10代"){
-             $('#recommend').textContent = ""
+       $('#btn1').click(function(event){
+         let sex =$("#sex").val();
+         let age =$("#age").val();
+         let category =$("#category").val();
+         let history =$("#history").val();
+         $.ajax({
+           type: "POST",
+           url: "data.php",
+           data: {"sex" : sex,"age" : age,"category" : category,"history" : history},
+           dataType : "json"
+         }).done(function(data){
+           if(sex == "男性" && age == "30代" || age == "40代" && category == "お金" || category =="自己啓発"  && history == "1~3年" || history == "3年以上"){
+             $("#recommend").append('<p>DIE WITH ZERO</p>','<img src="images/fr1.png" class="frImg" alt="おすすめ本１冊目">');
+            //  $("#recommend").addClass("frimg");
+            }else{
+             $("#recommend").append('<p>やり直し</p>')
            }
-         })
-       })
-     })
+         }).fail(function(XMLHttpsRequest,status,e){
+           alert(e);
+         });
+       });
+     });
     </script>
   </body>
   </html>
