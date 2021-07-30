@@ -43,16 +43,16 @@ require_once "./data.php"
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <form method="POST" class="container mx-auto mt-5">
+      <!-- <form method="POST" class="container mx-auto mt-5">
         <input type="hidden" name="token" value="<?php echo $token ?>">
         <div class="form-group d-flex">
           <label for="name">ユーザー名</label>
           <p><?php echo $name ?></p>
           <input type="hidden" name="name" class="form-control" id="name" value="<?php echo $name ?>">
         </div>
-      </form>
+      </form> -->
     </li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">スコア<?php print $total?></li>
     <li class="list-group-item">Vestibulum at eros</li>
   </ul>
 </div>
@@ -82,24 +82,24 @@ require_once "./data.php"
       <!-- 記入し送信された値をstatusContainerに送る -->
 
       <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-        　　<form method="GET" action="">
+        　　<form method="post" action="">
           <div class="form-group">
             <label for="name">題名</label>
             <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎">
           </div>
           <div class="form-group">
             <label for="time">時間</label>
-            <input type="time" name="time" class="form-control" id="time" placeholder="分単位で記入してください">
+            <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="<?php echo htmlspecialchars($time);?>">
           </div>
           <div class="form-group">
             <label for="page">ページ数</label>
-            <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください">
+            <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="<?php echo htmlspecialchars($page);?>">
           </div>
           <div class="form-group">
             <label for="book">冊数</label>
             <input type="book" name="book" class="form-control" id="book" placeholder="読んだ冊数を記入してください">
           </div>
-          <button type="submit" name="btn" class="btn btn-info mx-auto" style="max-width: 100px;">Submit</button>
+          <button type="submit" name="btn"  class="btn btn-info mx-auto" style="max-width: 100px;">Submit</button>
 
         </form>
 
@@ -117,7 +117,7 @@ require_once "./data.php"
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
   <script>
     $(function() {
-      $('#greet').click(function() {
+      $('#btn').click(function() {
 
         $.get('fuga.php', {
           name: $('#name').val()

@@ -1,13 +1,25 @@
 
 <?php
 
-session_start();
-session_regenerate_id();
+// session_start();
+// session_regenerate_id();
 
 $name = post("name");
 $email = post("email");
 $password = post("password");
 $token = post("token");
+$time = post("time");
+$page = post("page");
+$total = post("total");
+
+
+
+  if (isset($_POST['time']) && isset($_POST['page']) ){
+    $time = $_POST['time'];
+    $page = $_POST['page'];
+  }
+  $total = (int)$time + (int)$page;
+
 
 /**
  * postをサニタイズ化して返却。値が無ければNULLを返却
