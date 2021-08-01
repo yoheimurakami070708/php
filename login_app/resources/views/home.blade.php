@@ -24,13 +24,25 @@
           ユーザー情報
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">ユーサー名</li>
-          <li class="list-group-item">スコア</li>
-          <li class="list-group-item">レベル</li>
+          <li class="list-group-item">
+            <dt>ユーザー名：</dt>
+            <dd v-pre>{{ Auth::user()->name }}</dd>
+          </li>
+          <li class="list-group-item">
+            <dt>スコア</dt>
+            <dd>
+    
+            </dd>
+          </li>
+          <li class="list-group-item">
+            <dt>レベル</dt>
+            <dd?>
+              </dd>
+          </li>
         </ul>
       </div>
       <div class="">
-       <h3>カレンダー機能</h3>
+        <h3>カレンダー機能</h3>
       </div>
     </div>
 
@@ -64,11 +76,11 @@
           </div>
           <div class="form-group">
             <label for="time">時間</label>
-          
+            <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="">
           </div>
           <div class="form-group">
             <label for="page">ページ数</label>
-      -->
+            <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="">
           </div>
           <div class="form-group">
             <label for="book">冊数</label>
