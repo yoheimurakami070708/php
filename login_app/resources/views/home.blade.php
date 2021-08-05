@@ -31,7 +31,7 @@
           <li class="list-group-item">
             <dt>スコア</dt>
             <dd>
-    
+
             </dd>
           </li>
           <li class="list-group-item">
@@ -43,6 +43,9 @@
       </div>
       <div class="">
         <h3>カレンダー機能</h3>
+        <canvas id="my_chart">
+          Canvas not supported...
+        </canvas>
       </div>
     </div>
 
@@ -92,4 +95,28 @@
     </div>
   </main>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var type = 'line';
+
+      var data = {
+        labels: [2010, 2011, 2012, 2013],
+        datasets: [{
+          label: '経験値',
+          data: [120, 300, 200, 210]
+        }, ]
+      };
+
+      var options;
+      var ctx = document.getElementById('my_chart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options
+      });
+    })();
+  </script>
 @endsection

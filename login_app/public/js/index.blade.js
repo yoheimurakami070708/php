@@ -2,7 +2,7 @@
 
 
 $(function(){
-  $(window).scroll(function(){
+  $(window).on('scroll',function(){
     let scrollTop =$(document).scrollTop();
     let containerText =$('.containerText');
     let containerTextTop = containerText.offset().top;

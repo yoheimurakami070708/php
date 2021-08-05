@@ -15,15 +15,15 @@ class CreateScoresTable extends Migration
     public function up()
     {
             Schema::create('scores', function (Blueprint $table) {
-                $table->string('title',128);
-                $table->increments('time',11);
-                $table->increments('page',11);
+                $table->string('title');
+                $table->increments('time');
+                $table->increments('page');
             });
         
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrationcs.
      *
      * @return void
      */
