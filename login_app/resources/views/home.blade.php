@@ -32,7 +32,7 @@
             <dt>スコア</dt>
             @foreach($scores as $score)
             <dd>
-              {{$score}}
+              {{$score->time}}
               </dd>
               @endforeach
           </li>

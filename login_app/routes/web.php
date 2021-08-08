@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// スコア登録
+Route::get('/scores', [App\Http\Controllers\ScoreController::class, 'scores']);
 // マイページ画面
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// スコア登録
-Route::get('/home', [App\Http\Controllers\ScoreController::class, 'scores']);
 
