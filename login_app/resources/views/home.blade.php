@@ -30,9 +30,11 @@
           </li>
           <li class="list-group-item">
             <dt>スコア</dt>
+            @foreach($scores as $score)
             <dd>
-
-            </dd>
+              {{$score}}
+              </dd>
+              @endforeach
           </li>
           <li class="list-group-item">
             <dt>レベル</dt>
@@ -72,18 +74,34 @@
       <!-- 記入し送信された値をstatusContainerに送る -->
 
       <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-        　　<form method="post" action="">
+        　　<form method="post" action="{{route('score')}}">
+          @csrf
           <div class="form-group">
             <label for="name">題名</label>
             <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎">
+            @if($errors->has('title'))
+             <div class="text-danger">
+              {{$errors->first('title')}}
+             </div>
+            @endif
           </div>
           <div class="form-group">
             <label for="time">時間</label>
             <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="">
+            @if($errors->has('time'))
+             <div class="text-danger">
+              {{$errors->first('time')}}
+             </div>
+            @endif
           </div>
           <div class="form-group">
             <label for="page">ページ数</label>
             <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="">
+            @if($errors->has('page'))
+             <div class="text-danger">
+              {{$errors->first('page')}}
+             </div>
+            @endif
           </div>
           <div class="form-group">
             <label for="book">冊数</label>

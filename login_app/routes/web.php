@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// ウェブサイト画面
 Route::get('/', function () {
     return view('index');
 });
 
 Auth::routes();
 
+// マイページ画面
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'scores'])->name('score');
+// スコア登録
+Route::get('/home', [App\Http\Controllers\ScoreController::class, 'scores']);
 

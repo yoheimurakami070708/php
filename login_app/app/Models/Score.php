@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Models\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class score extends Model
+class Score extends Model
 {
+    // テーブル名
     protected $table = 'scores';
-
+    // 可変項目
     protected $fillable =
     [
         'title',
         'time',
         'page'
-    ]
+    ];
+
 }

@@ -14,6 +14,6 @@ class ScoreTableseeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
