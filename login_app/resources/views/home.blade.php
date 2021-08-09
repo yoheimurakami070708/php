@@ -30,11 +30,8 @@
           </li>
           <li class="list-group-item">
             <dt>スコア</dt>
-            @foreach($scores as $score)
             <dd>
-              {{$score->time}}
               </dd>
-              @endforeach
           </li>
           <li class="list-group-item">
             <dt>レベル</dt>
