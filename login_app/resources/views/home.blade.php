@@ -71,7 +71,7 @@
       <!-- 記入し送信された値をstatusContainerに送る -->
 
       <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-        　　<form method="post" action="{{route('score')}}">
+        　　<form method="post" action="{{route('scores')}}">
           @csrf
           <div class="form-group">
             <label for="name">題名</label>
@@ -106,6 +106,11 @@
           </div>
           <button type="submit" name="btn" class="btn btn-info mx-auto" style="max-width: 100px;">Submit</button>
         </form>
+        @isset($scores)
+          @foreach($scores as $score)
+            <dd> {{$score}} </dd>
+          @endforeach
+        @endif
       </div>
     </div>
   </main>

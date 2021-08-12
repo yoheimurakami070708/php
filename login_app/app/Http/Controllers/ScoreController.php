@@ -7,9 +7,14 @@ use App\Models\Score;
 
 class ScoreController extends Controller
 {
-    public function scores()
+    public function scores(Request $request)
     {
-     $scores = Score::all();
-     return view('home',compact('scores'));
+        $score = new Score();
+        $score->title = $request->input('title');
+        $score->time = $request->input('time');
+        $score->page = $request->input('page');
+        $score->save();
+        $scores = Score::all();
+        return view('home', compact('scores'));
     }
 }

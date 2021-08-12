@@ -21,7 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 // スコア登録
-Route::get('/scores', [App\Http\Controllers\ScoreController::class, 'scores']);
+Route::post('/home', [App\Http\Controllers\ScoreController::class, 'scores'])->name('scores');
 // マイページ画面
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// nameを指定することでcontrollerにすぐ接続できる

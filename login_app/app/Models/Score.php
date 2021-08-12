@@ -16,5 +16,6 @@ class Score extends Model
         'time',
         'page'
     ];
-
+    
+    public $timestamps = false;
 }
