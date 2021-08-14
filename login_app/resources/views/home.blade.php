@@ -31,12 +31,18 @@
           <li class="list-group-item">
             <dt>スコア</dt>
             <dd>
-              </dd>
+              @isset($scores)
+              {{$sum}}
+              @endif
+            </dd>
           </li>
           <li class="list-group-item">
             <dt>レベル</dt>
-            <dd?>
-              </dd>
+            <dd>
+              @isset($scores)
+              {{$level}}
+              @endif
+            </dd>
           </li>
         </ul>
       </div>
@@ -77,27 +83,27 @@
             <label for="name">題名</label>
             <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎">
             @if($errors->has('title'))
-             <div class="text-danger">
+            <div class="text-danger">
               {{$errors->first('title')}}
-             </div>
+            </div>
             @endif
           </div>
           <div class="form-group">
             <label for="time">時間</label>
             <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="">
             @if($errors->has('time'))
-             <div class="text-danger">
+            <div class="text-danger">
               {{$errors->first('time')}}
-             </div>
+            </div>
             @endif
           </div>
           <div class="form-group">
             <label for="page">ページ数</label>
             <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="">
             @if($errors->has('page'))
-             <div class="text-danger">
+            <div class="text-danger">
               {{$errors->first('page')}}
-             </div>
+            </div>
             @endif
           </div>
           <div class="form-group">
@@ -106,37 +112,37 @@
           </div>
           <button type="submit" name="btn" class="btn btn-info mx-auto" style="max-width: 100px;">Submit</button>
         </form>
-        @isset($scores)
-          @foreach($scores as $score)
-            <dd> {{$score}} </dd>
-          @endforeach
-        @endif
       </div>
     </div>
   </main>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  <script>
-    (function() {
-      'use strict';
+<script>
+  (function() {
+    'use strict';
 
-      var type = 'line';
+    mydate = new Date();
+    Ye = mydate.getFullYear() + ".";
+    Mo = mydate.getMonth() + 1 + ".";
+    Da = mydate.getDate() ;
+    var day = document.write(Ye + Mo + Da );
+    var type = 'line';
 
-      var data = {
-        labels: [2010, 2011, 2012, 2013],
-        datasets: [{
-          label: '経験値',
-          data: [120, 300, 200, 210]
-        }, ]
-      };
+    var data = {
+      labels: [day, 2011, 2012, 2013],
+      datasets: [{
+        label: '経験値',
+        data: [120, 300, 200, 210]
+      }, ]
+    };
 
-      var options;
-      var ctx = document.getElementById('my_chart').getContext('2d');
-      var myChart = new Chart(ctx, {
-        type: type,
-        data: data,
-        options: options
-      });
-    })();
-  </script>
+    var options;
+    var ctx = document.getElementById('my_chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: type,
+      data: data,
+      options: options
+    });
+  })();
+</script>
 @endsection
