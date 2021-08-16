@@ -116,33 +116,33 @@
     </div>
   </main>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
-  (function() {
-    'use strict';
+    let mydate = new Date(); 
+    let Ye = mydate.getFullYear();
+    let Mo = mydate.getMonth() + 1 ; 
+    let Da = mydate.getDate() ; 
+    let Da1 = mydate.setDate(mydate.getDate() + 1) ; 
+    let day = Ye + "年" + Mo + "月" + Da + "日";
+    let day = Ye + "年" + Mo + "月" + Da1 + "日";
 
-    mydate = new Date();
-    Ye = mydate.getFullYear() + ".";
-    Mo = mydate.getMonth() + 1 + ".";
-    Da = mydate.getDate() ;
-    var day = document.write(Ye + Mo + Da );
-    var type = 'line';
+    // var type = 'line'; 
+    // var data = { labels: [day, 2011, 2012, 2013], datasets: [{ label: '経験値', data: [120, 300, 200, 210] }, ] }; 
+    // var options; 
+    const ctx = document.getElementById('my_chart');
+        const chart_cv = new Chart(ctx, {
+          type: 'line', // グラフの種類
+          data: {
+              datasets: [
+                  {
+                      label: '経験値',
+                      data: [0,120, 300, 200, 210] 
+                  }
+              ],
+              labels: ['', day, day1, 2012, 2013],
+          }
+        })
 
-    var data = {
-      labels: [day, 2011, 2012, 2013],
-      datasets: [{
-        label: '経験値',
-        data: [120, 300, 200, 210]
-      }, ]
-    };
-
-    var options;
-    var ctx = document.getElementById('my_chart').getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: type,
-      data: data,
-      options: options
-    });
-  })();
 </script>
 @endsection
