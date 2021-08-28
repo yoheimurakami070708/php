@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\index;
 use App\Models\Score;
 
 class HomeController extends Controller
@@ -26,6 +27,10 @@ class HomeController extends Controller
     {
         $score = new Score();
         $scores = Score::all();
+    
+        foreach ($scores as $score) {
+            $titles = $score->title;
+        }
         $times =0;
         foreach($scores as $score){
             $times += $score->time;
@@ -49,6 +54,6 @@ class HomeController extends Controller
             $level ="見習い";
         }
 
-        return view('home', compact('scores','times','pages','sum','level'));
+        return view('home', compact('scores','times','pages','sum','level','titles'));
     }
 }

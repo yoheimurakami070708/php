@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\index;
 use App\Models\Score;
 
 class ScoreController extends Controller
 {
+
+
+
     public function scores(Request $request)
     {
         $score = new Score();
@@ -15,29 +19,35 @@ class ScoreController extends Controller
         $score->page = $request->input('page');
         $score->save();
         $scores = Score::all();
-        $times =0;
-        foreach($scores as $score){
+        
+ 
+        foreach ($scores as $score) {
+            $titles = $score->title;
+        }
+
+        $times = 0;
+        foreach ($scores as $score) {
             $times += $score->time;
         }
-        $pages =0;
-        foreach($scores as $score){
+        $pages = 0;
+        foreach ($scores as $score) {
             $pages += $score->page;
         }
-        $sum= $times + $pages;
+        $sum = $times + $pages;
 
-        $level="見習い";
-        if($sum >=12000){
-            $level ="歩く図書館";
-        }elseif($sum >=8000){
-            $level ="本の虫";
-        }elseif($sum >=4000){
-            $level ="読書家";
-        }elseif($sum >=2500){
-            $level ="たまに読みます";
-        }elseif($sum < 2500){
-            $level ="見習い";
+        $level = "見習い";
+        if ($sum >= 12000) {
+            $level = "歩く図書館";
+        } elseif ($sum >= 8000) {
+            $level = "本の虫";
+        } elseif ($sum >= 4000) {
+            $level = "読書家";
+        } elseif ($sum >= 2500) {
+            $level = "たまに読みます";
+        } elseif ($sum < 2500) {
+            $level = "見習い";
         }
 
-        return view('home', compact('scores','times','pages','sum','level'));
+        return view('home', compact('scores', 'times', 'pages', 'sum', 'level','titles'));
     }
 }

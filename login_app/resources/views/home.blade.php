@@ -17,102 +17,6 @@
     </header>
   </div>
   <main>
-    <h2>at first</h2>
-    <div id="cardchange">
-      <div class="card-group" id="card1">
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="card-group" id="card2">
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-          </svg>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="card container mx-auto mt-5" id="card1" style="width: 18rem;">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-        </svg>
-        <div class="card-body">
-          <h5 class="card-title">Card title１</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" id="card2" style="width: 18rem;">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-          <title>Placeholder</title>
-          <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
-        </svg>
-        <div class="card-body">
-          <h5 class="card-title">Card title２</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div> -->
-    </div>
       <h2>Status</h2>
       <div class="row justify-content-center">
         <div class="card">
@@ -176,8 +80,8 @@
           　　<form method="post" action="{{route('scores')}}">
             @csrf
             <div class="form-group">
-              <label for="name">題名</label>
-              <input type="text" name="name" class="form-control" id="name" placeholder="テスト太郎">
+              <label for="title">題名</label>
+              <input type="text" name="title" class="form-control" id="title" placeholder="テスト太郎">
               @if($errors->has('title'))
               <div class="text-danger">
                 {{$errors->first('title')}}
@@ -210,6 +114,32 @@
           </form>
         </div>
       </div>
+<div class="panel panel-default">
+  <div class="panel-heading"><h2>Record</h2></div>
+    <div class="panel-body">
+      <table class="table table-striped task-table">
+        <!-- テーブルヘッダ -->
+        <thead>
+          <th>タスク</th>
+        </thead>
+        <!-- テーブル本体 -->
+        <tbody>
+          <tr>
+            <td class="table-text">
+              <div> 
+                       @isset($scores)
+                {{$titles}}
+                @endif        
+              </div>
+            </td>
+            <td>
+              <!-- 削除ボタン -->
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
   </main>
 </div>
 <div class="card bg-info text-white">
