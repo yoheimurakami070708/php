@@ -47,7 +47,7 @@ class ScoreController extends Controller
         } elseif ($sum < 2500) {
             $level = "見習い";
         }
-
+// viewとの紐付け
         return view('home', compact('scores', 'times', 'pages', 'sum', 'level','titles'));
     }
 }

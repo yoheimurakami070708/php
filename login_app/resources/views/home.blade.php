@@ -75,7 +75,7 @@
         <h2>Saving</h2>
         <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
         <!-- 記入し送信された値をstatusContainerに送る -->
-
+        @include('common.errors')
         <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
           　　<form method="post" action="{{route('scores')}}">
             @csrf
@@ -126,11 +126,13 @@
         <tbody>
           <tr>
             <td class="table-text">
+              @isset($scores)
+          @foreach($scores as $score)
               <div> 
-                       @isset($scores)
-                {{$titles}}
-                @endif        
-              </div>
+            {{$score->title}} 
+          </div>
+          @endforeach
+        @endif 
             </td>
             <td>
               <!-- 削除ボタン -->
