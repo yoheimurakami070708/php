@@ -17,131 +17,129 @@
     </header>
   </div>
   <main>
-      <h2>Status</h2>
-      <div class="row justify-content-center">
-        <div class="card">
-          <div class="card-header">
-            ユーザー情報
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <dt>ユーザー名：</dt>
-              <dd v-pre>{{ Auth::user()->name }}</dd>
-            </li>
-            <li class="list-group-item">
-              <dt>スコア</dt>
-              <dd>
-                @isset($scores)
-                {{$sum}}
-                @endif
-              </dd>
-            </li>
-            <li class="list-group-item">
-              <dt>レベル</dt>
-              <dd>
-                @isset($scores)
-                {{$level}}
-                @endif
-              </dd>
-            </li>
-          </ul>
+    <h2>Status</h2>
+    <div class="row justify-content-center">
+      <div class="card">
+        <div class="card-header">
+          ユーザー情報
         </div>
-        <div class="">
-          <h3>カレンダー機能</h3>
-          <canvas id="my_chart">
-            Canvas not supported...
-          </canvas>
-        </div>
-      </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <dt>ユーザー名：</dt>
+            <dd v-pre>{{ Auth::user()->name }}</dd>
+          </li>
+          <li class="list-group-item">
+            <dt>スコア</dt>
+            <dd>
 
-      <!-- 題名・時間・ページ数・冊数・メモの記入欄を出力 -->
-      <!-- 時間 -->
-      <!-- 分単位で入力 -->
-      <!-- １分１ポイント -->
-      <!-- ページ数 -->
-      <!-- １ページ１ポイント -->
-      <!-- 冊数 -->
-      <!-- 1冊５ポイント -->
-      <!-- 項目全て入力したらボーナス１０ポイント -->
+            </dd>
+          </li>
+          <li class="list-group-item">
+            <dt>レベル</dt>
+            <dd>
 
-      <!-- 階層 -->
-      <!-- ０〜1200はダメ人間 -->
-      <!-- 1201〜4000はたまに読みます -->
-      <!-- 4001〜8000は読書家 -->
-      <!-- 8001〜12000は本の虫 -->
-      <!-- それ以降は歩く図書館 -->
-      <!-- 条件分岐php基礎文法１４ -->
-      <div class="saving">
-        <h2>Saving</h2>
-        <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
-        <!-- 記入し送信された値をstatusContainerに送る -->
-        @include('common.errors')
-        <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-          　　<form method="post" action="{{route('scores')}}">
-            @csrf
-            <div class="form-group">
-              <label for="title">題名</label>
-              <input type="text" name="title" class="form-control" id="title" placeholder="テスト太郎">
-              @if($errors->has('title'))
-              <div class="text-danger">
-                {{$errors->first('title')}}
-              </div>
-              @endif
-            </div>
-            <div class="form-group">
-              <label for="time">時間</label>
-              <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="">
-              @if($errors->has('time'))
-              <div class="text-danger">
-                {{$errors->first('time')}}
-              </div>
-              @endif
-            </div>
-            <div class="form-group">
-              <label for="page">ページ数</label>
-              <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="">
-              @if($errors->has('page'))
-              <div class="text-danger">
-                {{$errors->first('page')}}
-              </div>
-              @endif
-            </div>
-            <div class="form-group">
-              <label for="book">冊数</label>
-              <input type="book" name="book" class="form-control" id="book" placeholder="読んだ冊数を記入してください">
-            </div>
-            <button type="submit" name="btn" class="btn btn-info mx-auto container my-3" style="max-width: 100px;">Submit</button>
-          </form>
-        </div>
+            </dd>
+          </li>
+        </ul>
       </div>
-<div class="panel panel-default">
-  <div class="panel-heading"><h2>Record</h2></div>
-    <div class="panel-body">
-      <table class="table table-striped task-table">
-        <!-- テーブルヘッダ -->
-        <thead>
-          <th>タスク</th>
-        </thead>
-        <!-- テーブル本体 -->
-        <tbody>
-          <tr>
-            <td class="table-text">
-              @isset($scores)
-          @foreach($scores as $score)
-              <div> 
-            {{$score->title}} 
+      <div class="">
+        <h3>カレンダー機能</h3>
+        <canvas id="my_chart">
+          Canvas not supported...
+        </canvas>
+      </div>
+    </div>
+
+    <!-- 題名・時間・ページ数・冊数・メモの記入欄を出力 -->
+    <!-- 時間 -->
+    <!-- 分単位で入力 -->
+    <!-- １分１ポイント -->
+    <!-- ページ数 -->
+    <!-- １ページ１ポイント -->
+    <!-- 冊数 -->
+    <!-- 1冊５ポイント -->
+    <!-- 項目全て入力したらボーナス１０ポイント -->
+
+    <!-- 階層 -->
+    <!-- ０〜1200はダメ人間 -->
+    <!-- 1201〜4000はたまに読みます -->
+    <!-- 4001〜8000は読書家 -->
+    <!-- 8001〜12000は本の虫 -->
+    <!-- それ以降は歩く図書館 -->
+    <!-- 条件分岐php基礎文法１４ -->
+    <div class="saving">
+      <h2>Saving</h2>
+      <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
+      <!-- 記入し送信された値をstatusContainerに送る -->
+      @include('common.errors')
+      <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
+        　　<form method="POST" action="{{ route('home.store') }}">
+          @csrf
+          <div class="form-group">
+            <label for="title">題名</label>
+            <input type="text" name="title" class="form-control" id="title" placeholder="テスト太郎">
+            @if($errors->has('title'))
+            <div class="text-danger">
+              {{$errors->first('title')}}
+            </div>
+            @endif
           </div>
-          @endforeach
-        @endif 
-            </td>
-            <td>
-              <!-- 削除ボタン -->
-            </td>
-          </tr>
-        </tbody>
-    </table>
-  </div>
-</div>
+          <div class="form-group">
+            <label for="time">時間</label>
+            <input type="text" name="time" class="form-control" id="time" placeholder="分単位で記入してください" value="">
+            @if($errors->has('time'))
+            <div class="text-danger">
+              {{$errors->first('time')}}
+            </div>
+            @endif
+          </div>
+          <div class="form-group">
+            <label for="page">ページ数</label>
+            <input type="page" name="page" class="form-control" id="page" placeholder="読んだページ数を記入してください" value="">
+            @if($errors->has('page'))
+            <div class="text-danger">
+              {{$errors->first('page')}}
+            </div>
+            @endif
+          </div>
+          <div class="form-group">
+            <label for="book">冊数</label>
+            <input type="book" name="book" class="form-control" id="book" placeholder="読んだ冊数を記入してください">
+          </div>
+          <button type="submit" name="btn" class="btn btn-info mx-auto container my-3" style="max-width: 100px;">Submit</button>
+        </form>
+      </div>
+      @if (count($scores) > 0)
+    <div class="panel panel-default">
+      <div class="panel-heading">タスクリスト</div>
+      <div class="panel-body">
+        <table class="table table-striped task-table">
+          <!-- テーブルヘッダ -->
+          <thead>
+            <th>タスク</th>
+          </thead>
+          <!-- テーブル本体 -->
+          <tbody>
+            @foreach ($scores as $title)
+            <tr>
+              <td class="table-text">
+                <div>{{ $title->title }}</div>
+              </td>
+              <td>
+                <!-- 削除ボタン -->
+                <form action="{{ route('scores.destroy',$score->id) }}" method="POST">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger">削除</button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    @endif
   </main>
 </div>
 <div class="card bg-info text-white">
@@ -162,26 +160,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
-    
-    let day1 = moment().add('days', 1).format("YYYY年MM月DD日");
-    let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
-    let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
-    let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
+  let day1 = moment().add('days', 1).format("YYYY年MM月DD日");
+  let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
+  let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
+  let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
 
-    const ctx = document.getElementById('my_chart');
-        const chart_cv = new Chart(ctx, {
-          type: 'line', // グラフの種類
-          data: {
-              datasets: [
-                  {
-                      label: '経験値',
-                      data: [0,120, 300, 200, 210] 
-                  }
-              ],
-              labels: ['', day1, day2, day3, day4],
-          }
-        })
-
+  const ctx = document.getElementById('my_chart');
+  const chart_cv = new Chart(ctx, {
+    type: 'line', // グラフの種類
+    data: {
+      datasets: [{
+        label: '経験値',
+        data: [0, 120, 300, 200, 210]
+      }],
+      labels: ['', day1, day2, day3, day4],
+    }
+  })
 </script>
 <script src="{{ asset('/js/home.blade.js')}}"></script>
 @endsection

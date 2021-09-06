@@ -5,17 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// Scoreで{}内のテーブルとか呼び出せる
 class Score extends Model
 {
-    // テーブル名
-    protected $table = 'scores';
-    // 可変項目
-    protected $fillable =
-    [
-        'title',
-        'time',
-        'page'
-    ];
-    
-    public $timestamps = false;
+    use HasFactory;
 }
