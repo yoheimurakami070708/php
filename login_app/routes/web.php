@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ScoreController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,8 +26,8 @@ Route::resource("home","App\Http\Controllers\ScoresController")->only([
 Auth::routes();
 
 // スコア登録
-Route::post('/home', [App\Http\Controllers\ScoresController::class, 'index'])->name('scores');
+
 // マイページ画面
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ScoresController::class, 'index'])->name('home');
 
 // nameを指定することでcontrollerにすぐ接続できる
