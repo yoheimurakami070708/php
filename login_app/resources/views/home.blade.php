@@ -73,7 +73,7 @@
       <!-- 記入し送信された値をstatusContainerに送る -->
       @include('common.errors')
       <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-        　　<form method="POST" action="{{ route('Scores.store') }}">
+        　　<form method="POST" action="{{ route('home.store') }}">
           @csrf
           <div class="form-group">
             <label for="title">題名</label>

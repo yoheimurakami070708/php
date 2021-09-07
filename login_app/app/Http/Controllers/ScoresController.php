@@ -24,7 +24,7 @@ class ScoresController extends Controller
         $scores = Score::where("user_id",Auth::user()->id)
         ->orderBy("id", "asc")
         ->get();
-        $data = ["scores" => $scores];
+        $data = ["home" => $scores];
         // viewとの紐付け/home.blade.php
         return view("home", $data);
     }
