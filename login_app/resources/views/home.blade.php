@@ -73,7 +73,7 @@
       <!-- 記入し送信された値をstatusContainerに送る -->
       @include('common.errors')
       <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
-        　　<form method="POST" action="{{ route('home.store') }}">
+        　　<form method="POST" action="{{ route('Scores.store') }}">
           @csrf
           <div class="form-group">
             <label for="title">題名</label>
@@ -127,7 +127,7 @@
               </td>
               <td>
                 <!-- 削除ボタン -->
-                <form action="{{ route('scores.destroy',$score->id) }}" method="POST">
+                <form action="{{ route('home.destroy',$scores->id) }}" method="POST">
                   @method('delete')
                   @csrf
                   <button type="submit" class="btn btn-danger">削除</button>

@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('index');
 });
 // ルーティング設定
-Route::resource("home","App\Http\Controllers\ScoresController")->only([
+Route::resource("scores","App\Http\Controllers\ScoresController")->only([
     "index","store","edit","update","destroy"
 ]);
 

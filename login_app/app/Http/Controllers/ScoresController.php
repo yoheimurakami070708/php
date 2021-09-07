@@ -22,11 +22,11 @@ class ScoresController extends Controller
     {
         // dbから値の取得。modelにあるだけではviewに表示され無いからcontrollerで取得
         $scores = Score::where("user_id",Auth::user()->id)
-        ->orderBy("time", "page")
+        ->orderBy("id", "asc")
         ->get();
         $data = ["scores" => $scores];
         // viewとの紐付け/home.blade.php
-        return view("scores", $data);
+        return view("home", $data);
     }
         /**
      * Show the form for creating a new resource.
@@ -63,7 +63,7 @@ class ScoresController extends Controller
                 $score->page = $request->page;
                 $score->save();
                 // 一覧画面に戻る
-                return redirect()->route("scores.index");
+                return redirect()->route("home.index");
             }
                 /**
      * Display the specified resource.
