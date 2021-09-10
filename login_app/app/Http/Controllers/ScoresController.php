@@ -13,7 +13,7 @@ class ScoresController extends Controller
     {
         $this->middleware("auth");
     }
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -21,14 +21,14 @@ class ScoresController extends Controller
     public function index()
     {
         // dbから値の取得。modelにあるだけではviewに表示され無いからcontrollerで取得
-        $scores = Score::where("user_id",Auth::user()->id)
-        ->orderBy("id", "asc")
-        ->get();
-        $data = ["home" => $scores];
+        $scores = Score::where("user_id", Auth::user()->id)
+            ->orderBy("id", "asc")
+            ->get();
+        $data = ["scores" => $scores];
         // viewとの紐付け/home.blade.php
         return view("home", $data);
     }
-        /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -37,12 +37,13 @@ class ScoresController extends Controller
     {
         //
     }
-        /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // requestはバリデーションの時に使える
     public function store(Request $request)
     {
         //  バリデーション
@@ -55,17 +56,17 @@ class ScoresController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-                // 登録
-                $score = new Score;
-                $score->title = $request->title;
-                $score->user_id = Auth::user()->id;
-                $score->time = $request->time;
-                $score->page = $request->page;
-                $score->save();
-                // 一覧画面に戻る
-                return redirect()->route("home.index");
-            }
-                /**
+        // 登録
+        $score = new Score;
+        $score->title = $request->title;
+        $score->user_id = Auth::user()->id;
+        $score->time = $request->time;
+        $score->page = $request->page;
+        $score->save();
+        // 一覧画面に戻る
+        return redirect()->route("home.index");
+    }
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -76,7 +77,7 @@ class ScoresController extends Controller
         //
     }
 
-    
+
     /**
      * Remove the specified resource from storage.
      *

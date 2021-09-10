@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-// ルーティング設定
+// ルーティング設定。resouceを使ってcrudを一気に。
 Route::resource("home","App\Http\Controllers\ScoresController")->only([
     "index","store","edit","update","destroy"
 ]);

@@ -14,7 +14,7 @@ class CreateScoresTable extends Migration
     // 実行
     public function up()
     {
-            Schema::create('home', function (Blueprint $table) {
+            Schema::create('scores', function (Blueprint $table) {
                 $table->id();
                 $table->integer("user_id");
                 $table->string('title');
