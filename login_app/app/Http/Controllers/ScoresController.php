@@ -27,6 +27,7 @@ class ScoresController extends Controller
         $data = ["scores" => $scores];
         // viewとの紐付け/home.blade.php
         return view("home", $data);
+
     }
     /**
      * Show the form for creating a new resource.
