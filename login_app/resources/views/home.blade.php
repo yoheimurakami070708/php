@@ -89,15 +89,30 @@
             @endif
           </div>
           <div class="form-group">
-            <label for="book">冊数</label>
-            <input type="book" name="book" class="form-control" id="book" placeholder="読んだ冊数を記入してください">
+            <label for="day">日付</label>
+            <input type="date" name="day" class="form-control
+            " id="day" placeholder="日付を入力してください">
+            @if($errors->has('day'))
+            <div class="text-danger">
+              {{$errors->first('day')}}
+            </div>
+            @endif
+          </div>
+          <div class="form-group">
+            <label for="comment">メモ</label>
+            <input type="textarea" name="comment" class="form-control" id="comment" placeholder="ひとこと">
+            @if($errors->has('comment'))
+            <div class="text-danger">
+              {{$errors->first('comment')}}
+            </div>
+            @endif
           </div>
           <button type="submit" name="btn" class="btn btn-info mx-auto container my-3" style="max-width: 100px;">Submit</button>
         </form>
       </div>
       @if (count($scores) > 0)
       <div class="panel panel-default">
-        <div class="panel-heading">タスクリスト</div>
+        <div class="panel-heading">Record</div>
         <div class="panel-body">
           <table class="table table-striped task-table">
             <!-- テーブルヘッダ -->
@@ -105,6 +120,8 @@
               <th>タスク</th>
               <th>時間（分）</th>
               <th>ページ数</th>
+              <th>日付</th>
+              <th>メモ</th>
             </thead>
             <!-- テーブル本体 -->
             <tbody>
@@ -118,6 +135,12 @@
                 </td>
                 <td class="table-text">
                   <div>{{ $score->page }}</div>
+                </td>
+                <td class="table-text">
+                  <div>{{ $score->day }}</div>
+                </td>
+                <td class="table-text">
+                  <div>{{ $score->comment }}</div>
                 </td>
                 <!-- 詳細ボタン -->
                 <td>

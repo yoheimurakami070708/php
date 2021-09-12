@@ -48,7 +48,7 @@ class ScoresController extends Controller
             $level = "見習い";
         }
         // viewとの紐付け
-        return view('home', compact('scores', 'times', 'pages', 'sum', 'level', 'titles'));
+        return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
     }
     /**
      * Show the form for creating a new resource.
@@ -86,6 +86,8 @@ class ScoresController extends Controller
         $score->user_id = Auth::user()->id;
         $score->time = $request->input('time');
         $score->page = $request->input('page');
+        $score->day = $request->day;
+        $score->comment = $request->comment;
         $score->save();
 
         // 一覧画面に戻る
@@ -134,10 +136,12 @@ class ScoresController extends Controller
         }
         // 登録
         $score = Score::find($id);
-        $score->id = $request->id;
+
         $score->title = $request->title;
         $score->time = $request->input('time');
         $score->page = $request->input('page');
+        $score->day = $request->day;
+        $score->comment = $request->comment;
         $score->save();
 
         // 一覧画面に戻る

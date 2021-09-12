@@ -20,6 +20,7 @@ class CreateScoresTable extends Migration
                 $table->string('title');
                 $table->integer('time');
                 $table->integer('page');
+                $table->date("day");
                 $table->text("comment")->nullable();
                 $table->timestamps();
                 

@@ -21,6 +21,16 @@
         <label for="page">Page</label>
         <input type="text" id="page" name="page" class="form-control" value="{{$score->page}}">
       </div>
+      <!-- day -->
+      <div class="form-group">
+        <label for="day">day</label>
+        <input type="date" id="day" name="day" class="form-control" value="{{$score->day}}">
+      </div>
+      <!-- comment -->
+      <div class="form-group">
+        <label for="comment">comment</label>
+        <input type="textarea" id="comment" name="comment" class="form-control" value="{{$score->comment}}">
+      </div>
       <!-- Saveボタン/Backボタン -->
       <div class="well well-sm">
         <button type="submit" class="btn btn-primary">Save</button>
