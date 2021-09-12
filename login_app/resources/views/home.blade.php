@@ -31,13 +31,17 @@
           <li class="list-group-item">
             <dt>スコア</dt>
             <dd>
-
+            @isset($scores)
+          {{$sum}}
+        @endif
             </dd>
           </li>
           <li class="list-group-item">
             <dt>レベル</dt>
             <dd>
-
+            @isset($scores)
+          {{$level}}
+        @endif
             </dd>
           </li>
         </ul>
@@ -126,12 +130,7 @@
                 <div>{{ $title->title }}</div>
               </td>
               <td>
-                <!-- 削除ボタン -->
-                <form action="{{ route('home.destroy',$scores->id) }}" method="POST">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" class="btn btn-danger">削除</button>
-                </form>
+    
               </td>
             </tr>
             @endforeach

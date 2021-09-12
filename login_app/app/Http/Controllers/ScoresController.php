@@ -20,17 +20,35 @@ class ScoresController extends Controller
      */
     public function index()
     {
-        // dbから値の取得。modelにあるだけではviewに表示され無いからcontrollerで取得
-        $scores = Score::where("scores.user_id", Auth::user()->id)
-            ->orderBy("id", "asc")
-            ->get();
-        $data = [
-            "scores" => $scores,
-            "user_id" => Auth::user()->id
-        ];
-        // viewとの紐付け/home.blade.php
-        return view("home",$data);
-
+        $scores = Score::all();
+        foreach ($scores as $score) {
+                        $titles = $score->title;
+                    }
+            
+                    $times = 0;
+                    foreach ($scores as $score) {
+                        $times += $score->time;
+                    }
+                    $pages = 0;
+                    foreach ($scores as $score) {
+                        $pages += $score->page;
+                    }
+                    $sum = $times + $pages;
+            
+                    $level = "見習い";
+                    if ($sum >= 12000) {
+                        $level = "歩く図書館";
+                    } elseif ($sum >= 8000) {
+                        $level = "本の虫";
+                    } elseif ($sum >= 4000) {
+                        $level = "読書家";
+                    } elseif ($sum >= 2500) {
+                        $level = "たまに読みます";
+                    } elseif ($sum < 2500) {
+                        $level = "見習い";
+                    }
+            // viewとの紐付け
+                    return view('home', compact('scores', 'times', 'pages', 'sum', 'level','titles'));
     }
     /**
      * Show the form for creating a new resource.
@@ -56,7 +74,7 @@ class ScoresController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()
-                ->route("home.index")
+                ->route("home")
                 ->withInput()
                 ->withErrors($validator);
         }
@@ -65,11 +83,12 @@ class ScoresController extends Controller
         $score->id = $request->id;
         $score->title = $request->title;
         $score->user_id = Auth::user()->id;
-        $score->time = $request->time;
-        $score->page = $request->page;
+        $score->time = $request->input('time');
+        $score->page = $request->input('page');
         $score->save();
+      
         // 一覧画面に戻る
-        return redirect()->route("home.index");
+        return redirect()->route("home");
     }
     /**
      * Display the specified resource.
@@ -94,7 +113,7 @@ class ScoresController extends Controller
         // 削除ボタン
         $score = Score::find($id);
         $score->delete();
-        return redirect()->route("home.index");
+        return redirect()->route("home");
     }
 }
 
