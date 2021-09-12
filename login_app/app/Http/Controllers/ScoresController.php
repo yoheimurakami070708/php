@@ -109,7 +109,8 @@ class ScoresController extends Controller
      */
     public function edit($id)
     {
-      
+      $score=Score::find($id);
+      return view("scoreedit",["score"=>$score]);
     }
 
         /**
@@ -133,6 +134,7 @@ class ScoresController extends Controller
         }
         // 登録
         $score = Score::find($id);
+        $score->id = $request->id;
         $score->title = $request->title;
         $score->time = $request->input('time');
         $score->page = $request->input('page');

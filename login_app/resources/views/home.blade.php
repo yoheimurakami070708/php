@@ -31,17 +31,17 @@
           <li class="list-group-item">
             <dt>スコア</dt>
             <dd>
-            @isset($scores)
-          {{$sum}}
-        @endif
+              @isset($scores)
+              {{$sum}}
+              @endif
             </dd>
           </li>
           <li class="list-group-item">
             <dt>レベル</dt>
             <dd>
-            @isset($scores)
-          {{$level}}
-        @endif
+              @isset($scores)
+              {{$level}}
+              @endif
             </dd>
           </li>
         </ul>
@@ -96,36 +96,51 @@
         </form>
       </div>
       @if (count($scores) > 0)
-    <div class="panel panel-default">
-      <div class="panel-heading">タスクリスト</div>
-      <div class="panel-body">
-        <table class="table table-striped task-table">
-          <!-- テーブルヘッダ -->
-          <thead>
-            <th>タスク</th>
-          </thead>
-          <!-- テーブル本体 -->
-          <tbody>
-            @foreach ($scores as $title)
-            <tr>
-              <td class="table-text">
-                <div>{{ $title->title }}</div>
-              </td>
-              <td>
-            <!-- 削除ボタン -->
-            <form action="{{ route('home.destroy',$score->id) }}" method="POST">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger">削除</button>
-              </form>
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+      <div class="panel panel-default">
+        <div class="panel-heading">タスクリスト</div>
+        <div class="panel-body">
+          <table class="table table-striped task-table">
+            <!-- テーブルヘッダ -->
+            <thead>
+              <th>タスク</th>
+              <th>時間（分）</th>
+              <th>ページ数</th>
+            </thead>
+            <!-- テーブル本体 -->
+            <tbody>
+              @foreach ($scores as $score)
+              <tr>
+                <td class="table-text">
+                  <div>{{ $score->title }}</div>
+                </td>
+                <td class="table-text">
+                  <div>{{ $score->time }}</div>
+                </td>
+                <td class="table-text">
+                  <div>{{ $score->page }}</div>
+                </td>
+                <!-- 詳細ボタン -->
+                <td>
+                  <form action="{{ route('home.edit',$score->id) }}" method="GET">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">更新</button>
+                  </form>
+                </td>
+                <td>
+                  <!-- 削除ボタン -->
+                  <form action="{{ route('home.destroy',$score->id) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger">削除</button>
+                  </form>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    @endif
+      @endif
   </main>
 </div>
 <div class="card bg-info text-white">
