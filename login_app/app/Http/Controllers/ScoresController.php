@@ -21,12 +21,15 @@ class ScoresController extends Controller
     public function index()
     {
         // dbから値の取得。modelにあるだけではviewに表示され無いからcontrollerで取得
-        $scores = Score::where("user_id", Auth::user()->id)
+        $scores = Score::where("scores.user_id", Auth::user()->id)
             ->orderBy("id", "asc")
             ->get();
-        $data = ["scores" => $scores];
+        $data = [
+            "scores" => $scores,
+            "user_id" => Auth::user()->id
+        ];
         // viewとの紐付け/home.blade.php
-        return view("home", $data);
+        return view("home",$data);
 
     }
     /**
@@ -59,6 +62,7 @@ class ScoresController extends Controller
         }
         // 登録
         $score = new Score;
+        $score->id = $request->id;
         $score->title = $request->title;
         $score->user_id = Auth::user()->id;
         $score->time = $request->time;
