@@ -22,33 +22,33 @@ class ScoresController extends Controller
     {
         $scores = Score::all();
         foreach ($scores as $score) {
-                        $titles = $score->title;
-                    }
-            
-                    $times = 0;
-                    foreach ($scores as $score) {
-                        $times += $score->time;
-                    }
-                    $pages = 0;
-                    foreach ($scores as $score) {
-                        $pages += $score->page;
-                    }
-                    $sum = $times + $pages;
-            
-                    $level = "見習い";
-                    if ($sum >= 12000) {
-                        $level = "歩く図書館";
-                    } elseif ($sum >= 8000) {
-                        $level = "本の虫";
-                    } elseif ($sum >= 4000) {
-                        $level = "読書家";
-                    } elseif ($sum >= 2500) {
-                        $level = "たまに読みます";
-                    } elseif ($sum < 2500) {
-                        $level = "見習い";
-                    }
-            // viewとの紐付け
-                    return view('home', compact('scores', 'times', 'pages', 'sum', 'level','titles'));
+            $titles = $score->title;
+        }
+
+        $times = 0;
+        foreach ($scores as $score) {
+            $times += $score->time;
+        }
+        $pages = 0;
+        foreach ($scores as $score) {
+            $pages += $score->page;
+        }
+        $sum = $times + $pages;
+
+        $level = "見習い";
+        if ($sum >= 12000) {
+            $level = "歩く図書館";
+        } elseif ($sum >= 8000) {
+            $level = "本の虫";
+        } elseif ($sum >= 4000) {
+            $level = "読書家";
+        } elseif ($sum >= 2500) {
+            $level = "たまに読みます";
+        } elseif ($sum < 2500) {
+            $level = "見習い";
+        }
+        // viewとの紐付け
+        return view('home', compact('scores', 'times', 'pages', 'sum', 'level', 'titles'));
     }
     /**
      * Show the form for creating a new resource.
@@ -75,6 +75,7 @@ class ScoresController extends Controller
         if ($validator->fails()) {
             return redirect()
                 ->route("home")
+                // 入力内容の引き継ぎ
                 ->withInput()
                 ->withErrors($validator);
         }
@@ -86,7 +87,7 @@ class ScoresController extends Controller
         $score->time = $request->input('time');
         $score->page = $request->input('page');
         $score->save();
-      
+
         // 一覧画面に戻る
         return redirect()->route("home");
     }
@@ -100,7 +101,47 @@ class ScoresController extends Controller
     {
         //
     }
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+      
+    }
 
+        /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //  バリデーション
+        $validator = Validator::make($request->all(), [
+            "title" => "required|max:255"
+        ]);
+        if ($validator->fails()) {
+            return redirect()
+                ->route("home",$id)
+                ->withInput()
+                ->withErrors($validator);
+        }
+        // 登録
+        $score = Score::find($id);
+        $score->title = $request->title;
+        $score->time = $request->input('time');
+        $score->page = $request->input('page');
+        $score->save();
+
+        // 一覧画面に戻る
+        return redirect()->route("home");
+
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -116,44 +157,3 @@ class ScoresController extends Controller
         return redirect()->route("home");
     }
 }
-
-//     public function scores(Request $request)
-//     {
-//         // インスタンス実行
-//         $score = new Score();
-//         $score->title = $request->input('title');
-//         $score->time = $request->input('time');
-//         $score->page = $request->input('page');
-//         $score->save();
-//         $scores = Score::all();
-        
- 
-//         foreach ($scores as $score) {
-//             $titles = $score->title;
-//         }
-
-//         $times = 0;
-//         foreach ($scores as $score) {
-//             $times += $score->time;
-//         }
-//         $pages = 0;
-//         foreach ($scores as $score) {
-//             $pages += $score->page;
-//         }
-//         $sum = $times + $pages;
-
-//         $level = "見習い";
-//         if ($sum >= 12000) {
-//             $level = "歩く図書館";
-//         } elseif ($sum >= 8000) {
-//             $level = "本の虫";
-//         } elseif ($sum >= 4000) {
-//             $level = "読書家";
-//         } elseif ($sum >= 2500) {
-//             $level = "たまに読みます";
-//         } elseif ($sum < 2500) {
-//             $level = "見習い";
-//         }
-// // viewとの紐付け
-//         return view('home', compact('scores', 'times', 'pages', 'sum', 'level','titles'));
-//     }
