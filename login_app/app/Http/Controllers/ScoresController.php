@@ -70,7 +70,11 @@ class ScoresController extends Controller
     {
         //  バリデーション
         $validator = Validator::make($request->all(), [
-            "title" => "required|max:255"
+            "title" => "required|max:255",
+            "time" => "required|max:255",
+            "page" => "required|max:10000",
+            "day" => "required",
+            "comment" => "max:255"
         ]);
         if ($validator->fails()) {
             return redirect()
@@ -126,7 +130,11 @@ class ScoresController extends Controller
     {
         //  バリデーション
         $validator = Validator::make($request->all(), [
-            "title" => "required|max:255"
+            "title" => "required|max:255",
+            "time" => "required|max:255",
+            "page" => "required|max:10000",
+            "day" => "required",
+            "comment" => "max:255"
         ]);
         if ($validator->fails()) {
             return redirect()
