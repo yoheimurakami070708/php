@@ -2,24 +2,24 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/home.blade.css')}}">
-<div class="container">
-  <div class="row justify-content-center">
-    <header>
-      <div class="title">
-        <div class="firstTitle">
-          <h1>MYYONDOYO</h1>
-          <p class="subTitle md-m-10">まい読んどこ</p>
-        </div>
-        <div class="secondTitle">
-          <p>習慣×読書＝最高の自己投資</p>
-        </div>
+<div class="row justify-content-center">
+  <header>
+    <div class="title">
+      <div class="firstTitle">
+        <h1>MYYONDOYO</h1>
+        <p class="subTitle md-m-10">まい読んどこ</p>
       </div>
-    </header>
-  </div>
-  <main>
-    <h2>Status</h2>
+      <div class="secondTitle">
+        <p>習慣×読書＝最高の自己投資</p>
+      </div>
+    </div>
+  </header>
+</div>
+<main>
+  <h2>Status</h2>
+    <div class="container mx-auto mt-5">
     <div class="row justify-content-center">
-      <div class="card">
+      <div class="card mx-5" >
         <div class="card-header">
           ユーザー情報
         </div>
@@ -31,7 +31,7 @@
           <li class="list-group-item">
             <dt>スコア</dt>
             <dd>
-              @isset($scores)
+            @isset($scores)
               {{$sum}}
               @endif
             </dd>
@@ -39,26 +39,26 @@
           <li class="list-group-item">
             <dt>レベル</dt>
             <dd>
-              @isset($scores)
-              {{$level}}
+            @isset($scores)
+              {{$sum}}
               @endif
             </dd>
           </li>
         </ul>
       </div>
       <div class="">
-        <h3>カレンダー機能</h3>
+        <h3 class="text-center">カレンダー機能</h3>
         <canvas id="my_chart">
           Canvas not supported...
         </canvas>
       </div>
     </div>
-    <div class="saving">
+    <div class="">
       <h2>Saving</h2>
       <!-- 題名・時間・ページ数・冊数・メモの記入欄 -->
       <!-- 記入し送信された値をstatusContainerに送る -->
       @include('common.errors')
-      <div class="savingContainer container mx-auto mt-5" style="max-width: 400px;">
+      <div class="container mx-auto mt-3" style="max-width: 400px;">
         　　<form method="POST" action="{{ route('home.store') }}">
           @csrf
           <div class="form-group">
@@ -107,13 +107,13 @@
             </div>
             @endif
           </div>
-          <button type="submit" name="btn" class="btn btn-info mx-auto container my-3" style="max-width: 100px;">Submit</button>
+          <button type="submit" name="btn" class="btn btn-info  container my-3 sb" >Submit</button>
         </form>
       </div>
       @if (count($scores) > 0)
       <div class="panel panel-default">
-        <div class="panel-heading">Record</div>
-        <div class="panel-body">
+        <h2>Record</h2>
+        <div class="panel-body container mx-auto mt-5">
           <table class="table table-striped task-table">
             <!-- テーブルヘッダ -->
             <thead>
@@ -141,6 +141,14 @@
                 </td>
                 <td class="table-text">
                   <div>{{ $score->comment }}</div>
+                </td>
+                <!-- いいね機能 -->
+                <td class="align-middle ">
+                  @if ($user_id == $score -> user_id )
+                  <button class="bg-transparent border-0 fav text-danger" data-id="data{{$score -> id}}" value="{{$score -> id}}"><i class="fas fa-heart"></i></button>
+                  @else
+                  <button class="bg-transparent border-0 fav" data-id="data{{$score -> id}}" value="{{$score -> id}}"><i class="fas fa-heart"></i></button>
+                  @endif
                 </td>
                 <!-- 詳細ボタン -->
                 <td>
@@ -202,4 +210,5 @@
   })
 </script>
 <script src="{{ asset('/js/home.blade.js')}}"></script>
+<script src="{{ mix('js/fav.js') }}"></script>
 @endsection

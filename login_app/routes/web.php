@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 // ルーティング設定。resouceを使ってcrudを一気に。
 Route::resource("home","App\Http\Controllers\ScoresController")->only([
-    "index","store","edit","update","destroy"
+    "index","store","edit","update","destroy","create"
 ]);
 
 Auth::routes();
@@ -28,6 +28,7 @@ Auth::routes();
 // スコア登録
 
 // マイページ画面
-Route::get('/home', [App\Http\Controllers\ScoresController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ScoresController::class, 'index',])->name('home');
+Route::post('/fav',[\App\Http\Controllers\FavsController::class,'index'])->name('favs');
 
 // nameを指定することでcontrollerにすぐ接続できる

@@ -342,7 +342,7 @@
         let history = $("#history").val();
         $.ajax({
           type: "POST",
-          url: "data.php",
+          url: "",
           data: {
             "sex": sex,
             "age": age,

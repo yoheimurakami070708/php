@@ -1,3 +1,4 @@
+
 header{
   background-image: url(../images/header.png);
   width: 100%;
@@ -5,7 +6,6 @@ header{
   color: #333;
   text-align: center;
 }
-
 
 h1{
   border-bottom: 5px solid aqua; 
@@ -78,4 +78,9 @@ h2{
   border: 1px solid #333;
   padding: 20px;
   max-width: 300px;
+}
+
+.sb{
+   display: inline-block;
+   
 }

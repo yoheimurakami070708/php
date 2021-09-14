@@ -20,6 +20,24 @@ class ScoresController extends Controller
      */
     public function index()
     {
+        $scores = Score::where("scores.user_id",Auth::user() -> id)
+        -> leftjoin('favs', 'scores.id', '=', 'favs.scores_id')
+        -> orderBy("scores.id","desc")
+        -> get();
+        $data = [
+            "scores" => $scores,
+            "user_id" => Auth::user()->id
+        ];
+        return view("home",$data);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $score = new Score();
         $scores = Score::all();
         foreach ($scores as $score) {
             $titles = $score->title;
@@ -48,16 +66,8 @@ class ScoresController extends Controller
             $level = "見習い";
         }
         // viewとの紐付け
-        return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        // return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
+        echo var_dump($scores);
     }
     /**
      * Store a newly created resource in storage.
@@ -131,7 +141,7 @@ class ScoresController extends Controller
         //  バリデーション
         $validator = Validator::make($request->all(), [
             "title" => "required|max:255",
-            "time" => "required|max:255",
+              "time" => "required|max:255",
             "page" => "required|max:10000",
             "day" => "required",
             "comment" => "max:255"
