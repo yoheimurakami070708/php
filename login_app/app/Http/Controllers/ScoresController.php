@@ -66,8 +66,7 @@ class ScoresController extends Controller
             $level = "見習い";
         }
         // viewとの紐付け
-        // return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
-        echo var_dump($scores);
+        return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
     }
     /**
      * Store a newly created resource in storage.
