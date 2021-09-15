@@ -24,37 +24,53 @@ class ScoresController extends Controller
         -> leftjoin('favs', 'scores.id', '=', 'favs.scores_id')
         -> orderBy("scores.id","desc")
         -> get();
+
+        $calc = $this -> _sumScores();
+
         $data = [
             "scores" => $scores,
-            "user_id" => Auth::user()->id
+            "user_id" => Auth::user()->id,
+            "calc" => $calc,
         ];
         return view("home",$data);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $score = new Score();
-        $scores = Score::all();
+
+    private function _sumScores() {
+        //クラスのインスタンス化をしているのにL:42で静的クラスで呼び出しをかけているのは何故でしょうか？
+        //静的、動的の呼び出しは一度確認してみて下さい。
+
+        //データを全件呼び出してその中の内容で計算しているのだと思いますが、ユーザで絞り込まないとだめなのでは？
+
+        //$score = new Score();
+        //$scores = Score::all();
+
+
+        $scores = Score::where("scores.user_id",Auth::user() -> id)->get();
+
         foreach ($scores as $score) {
+            //この書き方だと最後のデータの名前しか代入できていませんが大丈夫でしょうか？
             $titles = $score->title;
         }
 
+
+        //分ける必要がないのでまとめておきます。
         $times = 0;
-        foreach ($scores as $score) {
-            $times += $score->time;
-        }
         $pages = 0;
         foreach ($scores as $score) {
+            $times += $score->time;
             $pages += $score->page;
         }
+
         $sum = $times + $pages;
 
-        $level = "見習い";
-        if ($sum >= 12000) {
+//        $pages = 0;
+//        foreach ($scores as $score) {
+//            $pages += $score->page;
+//        }
+
+
+        $level = "見習い"; //デフォルトで書いてもらっているので
+        if ($sum >= 12000) { //switch使った方が可読性が上がります。
             $level = "歩く図書館";
         } elseif ($sum >= 8000) {
             $level = "本の虫";
@@ -62,13 +78,37 @@ class ScoresController extends Controller
             $level = "読書家";
         } elseif ($sum >= 2500) {
             $level = "たまに読みます";
-        } elseif ($sum < 2500) {
+        } elseif ($sum < 2500) { //ここは不要です
             $level = "見習い";
         }
         // viewとの紐付け
-        // return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
-        echo var_dump($scores);
+
+        $payload = [
+            'times' => $times,
+            'pages' => $pages,
+            'sum' => $sum,
+            'level' => $level
+        ];
+
+        return $payload;
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+        /**
+         * 前提として、Createメソッドは新規登録を行う際などに別のページがあれば
+         * そのページを表示するというために用意されている関数です。
+         * 今回のデータを取得して、何かを表示するという目的は
+         * Create関数にの定義に背いた使用方法になります。
+         */
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -89,13 +129,12 @@ class ScoresController extends Controller
         if ($validator->fails()) {
             return redirect()
                 ->route("home")
-                // 入力内容の引き継ぎ
                 ->withInput()
                 ->withErrors($validator);
         }
+
         // 登録
         $score = new Score;
-        $score->id = $request->id;
         $score->title = $request->title;
         $score->user_id = Auth::user()->id;
         $score->time = $request->input('time');

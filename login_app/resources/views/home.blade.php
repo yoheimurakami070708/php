@@ -32,7 +32,7 @@
             <dt>スコア</dt>
             <dd>
             @isset($scores)
-              {{$sum}}
+              {{$calc['sum'] ?? ''}}
               @endif
             </dd>
           </li>
@@ -40,7 +40,7 @@
             <dt>レベル</dt>
             <dd>
             @isset($scores)
-              {{$sum}}
+              {{$calc['level'] ?? ''}}
               @endif
             </dd>
           </li>
@@ -144,7 +144,7 @@
                 </td>
                 <!-- いいね機能 -->
                 <td class="align-middle ">
-                  @if ($user_id == $score -> user_id )
+                  @if ($user_id ?? '' == $score -> user_id )
                   <button class="bg-transparent border-0 fav text-danger" data-id="data{{$score -> id}}" value="{{$score -> id}}"><i class="fas fa-heart"></i></button>
                   @else
                   <button class="bg-transparent border-0 fav" data-id="data{{$score -> id}}" value="{{$score -> id}}"><i class="fas fa-heart"></i></button>
