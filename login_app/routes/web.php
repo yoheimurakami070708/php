@@ -20,13 +20,13 @@ Route::get('/', function () {
 });
 // ルーティング設定。resouceを使ってcrudを一気に。
 Route::resource("home","App\Http\Controllers\ScoresController")->only([
-    "index","store","edit","update","destroy","create"
+    "index","store","edit","update","destroy"
 ]);
 
 Auth::routes();
 
 // スコア登録
-
+Route::post('/home', [App\Http\Controllers\ScoresController::class, 'sum',])->name('sum');
 // マイページ画面
 Route::get('/home', [App\Http\Controllers\ScoresController::class, 'index',])->name('home');
 Route::post('/fav',[\App\Http\Controllers\FavsController::class,'index'])->name('favs');
