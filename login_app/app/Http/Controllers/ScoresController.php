@@ -39,6 +39,7 @@ class ScoresController extends Controller
         //クラスのインスタンス化をしているのにL:42で静的クラスで呼び出しをかけているのは何故でしょうか？
         //静的、動的の呼び出しは一度確認してみて下さい。
 
+
         //データを全件呼び出してその中の内容で計算しているのだと思いますが、ユーザで絞り込まないとだめなのでは？
 
         //$score = new Score();
@@ -70,16 +71,33 @@ class ScoresController extends Controller
 
 
         $level = "見習い"; //デフォルトで書いてもらっているので
-        if ($sum >= 12000) { //switch使った方が可読性が上がります。
-            $level = "歩く図書館";
-        } elseif ($sum >= 8000) {
-            $level = "本の虫";
-        } elseif ($sum >= 4000) {
-            $level = "読書家";
-        } elseif ($sum >= 2500) {
-            $level = "たまに読みます";
-        } elseif ($sum < 2500) { //ここは不要です
-            $level = "見習い";
+        // if ($sum >= 12000) { //switch使った方が可読性が上がります。
+        //     $level = "歩く図書館";
+        // } elseif ($sum >= 8000) {
+        //     $level = "本の虫";
+        // } elseif ($sum >= 4000) {
+        //     $level = "読書家";
+        // } elseif ($sum >= 2500) {
+        //     $level = "たまに読みます";
+        // } elseif ($sum < 2500) { //ここは不要です
+        //     $level = "見習い";
+        // }
+        switch($sum){
+            case $sum >= 12000;
+            $level="歩く図書館";
+            break;
+            case $sum >= 8000;
+            $level="本の虫";
+            break;
+            case $sum >= 4000;
+            $level="読書家";
+            break;
+            case $sum >= 2500;
+            $level="たまに読みます";
+            break;
+            case $sum < 2500;
+            $level="見習い";
+            break;
         }
         // viewとの紐付け
 
