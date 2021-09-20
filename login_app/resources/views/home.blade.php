@@ -107,7 +107,7 @@
             </div>
             @endif
           </div>
-          <button type="submit" name="btn" class="btn btn-info  container my-3 sb" >Submit</button>
+          <button type="submit" name="btn" id="sumbtn" class="btn btn-info  container my-3 sb" >Submit</button>
         </form>
       </div>
       @if (count($scores) > 0)
@@ -174,6 +174,11 @@
       @endif
   </main>
 </div>
+<div class="d-flex">
+ @for($i =1; $i <= $page; $i++)
+  <a href="?p={{$i}}">{{$i}}</a>
+ @endfor
+</div>
 <div class="card bg-info text-white">
   <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Card image">
     <title>Placeholder</title>
@@ -191,14 +196,22 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<script>
+  $(function(){
+  $('#sumbtn').click(function(){
+    $.get('{{$score->$sum}}')
+  }),function(data){
+    
+  }
+  });
+</script>
 <script>
   let day1 = moment().add('days', 1).format("YYYY年MM月DD日");
   let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
   let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
   let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
   
-  const sum = '{{ $score->sum }}';
-
   const ctx = document.getElementById('my_chart');
   const chart_cv = new Chart(ctx, {
     type: 'line', // グラフの種類

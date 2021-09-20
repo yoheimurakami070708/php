@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ScoresController extends Controller
 {
+    private $_limit = 5; 
     public function __construct()
     {
         $this->middleware("auth");
@@ -18,11 +19,30 @@ class ScoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $scores = Score::where("scores.user_id",Auth::user() -> id)
         -> leftjoin('favs', 'scores.id', '=', 'favs.scores_id')
         -> orderBy("scores.id","desc")
+        -> get();
+              
+        $allCount = count($scores);
+
+        $pageNum = $allCount / $this-> _limit;
+        $pageNum = ceil($pageNum);
+
+        $p =$request ->input('p');
+        if(empty($p)){
+            $p = 1;
+        }
+
+        $offset =($p - 1)*$this->_limit;
+
+        $scores = Score::where("scores.user_id",Auth::user() -> id)
+        -> leftjoin('favs', 'scores.id', '=', 'favs.scores_id')
+        -> orderBy("scores.id","desc")
+        ->offset($offset)
+        ->limit($this->_limit)
         -> get();
 
         $calc = $this -> _sumScores();
@@ -31,6 +51,7 @@ class ScoresController extends Controller
             "scores" => $scores,
             "user_id" => Auth::user()->id,
             "calc" => $calc,
+            "page"=> $pageNum
         ];
         return view("home",$data);
     }

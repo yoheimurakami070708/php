@@ -337,7 +337,10 @@
         let category = $("#category").val();
         let history = $("#history").val();
         $.ajax({
-          type: "POST",
+          headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
+           'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+       },
+          type: "get",
           url: "",
           data: {
             "sex": sex,
