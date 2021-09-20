@@ -130,11 +130,6 @@
           <p class="thirdSentence">新規登録はこちら←</p>
         </div>
       </div>
-
-
-
-
-
       <!-- 最初の１冊 -->
       <div class="tab-pane fade" id="nav-first" role="tabpanel" aria-labelledby="nav-first-tab">
         <h2>First reading</h2>
@@ -335,6 +330,7 @@
   <script src="{{ asset('/js/index.blade.js')}}"></script>
   <script>
     $(function() {
+      
       $('#btn1').click(function(event) {
         let sex = $("#sex").val();
         let age = $("#age").val();

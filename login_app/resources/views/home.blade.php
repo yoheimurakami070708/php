@@ -196,7 +196,8 @@
   let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
   let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
   let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
-  const obj = JSON.parse('<?php echo json_encode($obj) ?? '{}'; ?>');
+  
+  const sum = '{{ $score->sum }}';
 
   const ctx = document.getElementById('my_chart');
   const chart_cv = new Chart(ctx, {
@@ -204,7 +205,7 @@
     data: {
       datasets: [{
         label: 'スコア',
-        data: ['', , , , ]
+        data: ['',sum , sum, sum, sum]
       }],
       labels: ['', day1, day2, day3, day4],
     }
