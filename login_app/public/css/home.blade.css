@@ -81,6 +81,8 @@ h2{
 }
 
 .sb{
-   display: inline-block;
-   
+   display: inline-block; 
+}
+.ui{
+   width: 250px;
 }

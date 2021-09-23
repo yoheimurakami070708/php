@@ -135,6 +135,7 @@
         <h2>First reading</h2>
         <p class="mx-auto mt-3" style="max-width: 400px;">もともとは勉強嫌いで本もまともに読めなかった私ですが、本の世界に飛び込んでみると読みやすくて面白い本は意外にもたくさんあるものです。読みやすい物だけを厳選したのでぜひ参考にしてください。</p>
         <form　method="POST" action="data.php">
+          @csrf
           <div class="form-group mx-auto mt-3" style="max-width: 400px;">
             <label for="inputState">性別を選択してください</label>
             <select id="sex" class="form-control" name="sex">
@@ -170,9 +171,15 @@
               <option>3年以上</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="btn1">Go</button>
+          <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="first">Go</button>
         </form>
         <div id="recommend" class="container mx-auto mt-5 text-center" style="max-width: 400px; height: auto;"></div>
+        @if ($sex ?? '' == "男性" )
+        <h2>DIE WITH ZERO</h2>
+        <img src="images/fr1.png">
+        <a></a>
+        @else
+        @endif
       </div>
       <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
         <div>
@@ -328,40 +335,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="{{ asset('/js/jquery.js')}}"></script>
   <script src="{{ asset('/js/index.blade.js')}}"></script>
-  <script>
-    $(function() {
-      
-      $('#btn1').click(function(event) {
-        let sex = $("#sex").val();
-        let age = $("#age").val();
-        let category = $("#category").val();
-        let history = $("#history").val();
-        $.ajax({
-          headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述
-           'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-       },
-          type: "get",
-          url: "",
-          data: {
-            "sex": sex,
-            "age": age,
-            "category": category,
-            "history": history
-          },
-          dataType: "json"
-        }).done(function(data) {
-          if (sex == "男性" && age == "30代" || age == "40代" && category == "お金" || category == "自己啓発" && history == "1~3年" || history == "3年以上") {
-            $("#recommend").append('<p>DIE WITH ZERO</p>', '<img src="images/fr1.png" class="frImg" alt="おすすめ本１冊目">');
-            //  $("#recommend").addClass("frimg");
-          } else {
-            $("#recommend").append('<p>やり直し</p>')
-          }
-        }).fail(function(XMLHttpsRequest, status, e) {
-          alert(e);
-        });
-      });
-    });
-  </script>
+
 
 </body>
 

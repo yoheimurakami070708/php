@@ -17,21 +17,21 @@
 </div>
 <main>
   <h2>Status</h2>
-    <div class="container mx-auto mt-5">
+  <div class="container mx-auto mt-5">
     <div class="row justify-content-center">
-      <div class="card mx-5" >
-        <div class="card-header">
+      <div class="card mx-5 ui">
+        <div class="card-header text-center">
           ユーザー情報
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush text-center">
           <li class="list-group-item">
-            <dt>ユーザー名：</dt>
+            <dt>ユーザー名</dt>
             <dd v-pre>{{ Auth::user()->name }}</dd>
           </li>
           <li class="list-group-item">
-            <dt>スコア</dt>
+            <dt>トータルスコア</dt>
             <dd>
-            @isset($scores)
+              @isset($scores)
               {{$calc['sum'] ?? ''}}
               @endif
             </dd>
@@ -39,7 +39,7 @@
           <li class="list-group-item">
             <dt>レベル</dt>
             <dd>
-            @isset($scores)
+              @isset($scores)
               {{$calc['level'] ?? ''}}
               @endif
             </dd>
@@ -48,7 +48,7 @@
       </div>
       <div class="">
         <h3 class="text-center">カレンダー機能</h3>
-        <canvas id="my_chart">
+        <canvas id="my_chart" height="250">
           Canvas not supported...
         </canvas>
       </div>
@@ -107,7 +107,7 @@
             </div>
             @endif
           </div>
-          <button type="submit" name="btn" id="sumbtn" class="btn btn-info  container my-3 sb" >Submit</button>
+          <button type="submit" name="btn" id="sumbtn" class="btn btn-info  container my-3 sb">Submit</button>
         </form>
       </div>
       @if (count($scores) > 0)
@@ -172,12 +172,12 @@
         </div>
       </div>
       @endif
-  </main>
+</main>
 </div>
-<div class="d-flex">
- @for($i =1; $i <= $page; $i++)
-  <a href="?p={{$i}}">{{$i}}</a>
- @endfor
+<!-- ページネーション -->
+<div class="d-flex container my-5">
+  @for($i =1; $i <= $page; $i++) <a href="?p={{$i}}" class="mx-auto">{{$i}}</a>
+    @endfor
 </div>
 <div class="card bg-info text-white">
   <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Card image">
@@ -197,7 +197,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-{{--<script>--}}
+<!-- {{--<script>--}}
 {{--  $(function(){--}}
 {{--  $('#sumbtn').click(function(){--}}
 {{--    $.get('{{$score->sum ?? '' ?? ''}}')--}}
@@ -205,58 +205,62 @@
 
 {{--  }--}}
 {{--  });--}}
-{{--</script>--}}
+{{--</script>--}} -->
 
 <script>
+  //データ取得
+  const scores = @json($scoresAll);
 
-    //データ取得
-    const scores = @json($scoresAll);
-   
-    //デフォルト変数設定
-   const payload = [''] //グラフ表示用
-   const labels = [''] //ラベル表示用
-   const days = new Array() //表示データ検索用
+  //デフォルト変数設定(初期値)
+  const payload = [''] //グラフ表示用
+  const labels = [''] //ラベル表示用
+  const days = new Array() //表示データ検索用
 
-    // 一番左端にも値を表示したい場合は
-    // const payload = new Array()
-    // const labels = new Array()
+  // 一番左端にも値を表示したい場合は
+  // const payload = new Array()
+  // const labels = new Array()
 
-    //今日から5日間ではなく、4日前から本日を含む5日間のデータを取得 (未来のスコアは不明のため）
-    for (var i = 0; i <= 4; i++) {
-        days.push(moment(new Date()).add(-i, 'days').format("YYYY-MM-DD"))
-        labels.push(moment(new Date()).add(-i, 'days').format("YYYY年MM月DD日"))
+  //今日から5日間ではなく、4日前から本日を含む5日間のデータを取得 (未来のスコアは不明のため）
+  // pushは末尾に要素追加
+  // momentとformatで現在時刻を表示
+  for (var i = 0; i <= 4; i++) {
+    days.push(moment(new Date()).add(-i, 'days').format("YYYY-MM-DD"))
+    labels.push(moment(new Date()).add(-i, 'days').format("YYYY年MM月DD日"))
+  }
+
+  // データが大きい順に入っているので小さい順に変更
+  days.sort();
+
+  // mapは配列データ（days）に使う
+  days.map(v => {
+    var sum = 0
+    //取得した日時と一致するデータを取得　
+    let fetch = scores.filter(val => val.day === v)
+    //取得した日時のスコアを日別で計算して配列に保存
+    $.each(fetch, function(k, v) {
+      sum = sum + v.page + v.time
+    })
+    payload.push(sum)
+  })
+
+
+  // let day1 = moment().add('days', 1).format("YYYY年MM月DD日");
+  // let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
+  // let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
+  // let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
+
+  const ctx = document.getElementById('my_chart');
+  const chart_cv = new Chart(ctx, {
+    type: 'line', // グラフの種類
+    data: {
+      datasets: [{
+        label: 'スコア',
+        data: payload,
+        backgroundColor: 'skyblue'
+      }],
+      labels: labels.sort(),
     }
-
-    // データが大きい順に入っているので小さい順に変更
-    days.sort();
-
-    days.map(v => {
-        var sum = 0
-        //取得した日時と一致するデータを取得　
-        let fetch = scores.filter(val => val.day === v)
-        //取得した日時のスコアを日別で計算して配列に保存
-        $.each(fetch, function (k, v) {
-            sum = sum + v.page + v.time
-        })
-        payload.push(sum)
-    })
-
-    // let day1 = moment().add('days', 1).format("YYYY年MM月DD日");
-    // let day2 = moment().add('days', 2).format("YYYY年MM月DD日");
-    // let day3 = moment().add('days', 3).format("YYYY年MM月DD日");
-    // let day4 = moment().add('days', 4).format("YYYY年MM月DD日");
-
-    const ctx = document.getElementById('my_chart');
-    const chart_cv = new Chart(ctx, {
-        type: 'line', // グラフの種類
-        data: {
-            datasets: [{
-                label: 'スコア',
-                data: payload
-            }],
-            labels: labels.sort(),
-        }
-    })
+  })
 </script>
 <script src="{{ asset('/js/home.blade.js')}}"></script>
 <script src="{{ mix('js/fav.js') }}"></script>
