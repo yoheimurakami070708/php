@@ -25,7 +25,7 @@ class firstsController extends Controller
       ];
       echo json_encode($data);
       return view("index",$data);
-    
+      var_dump($data);
     }
-  
+    
 }
