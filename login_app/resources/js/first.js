@@ -1,4 +1,5 @@
   $('#first').on(function(event) {
+    let scores_id=$(this).val()
     let sex = $("#sex").val();
     let age = $("#age").val();
     let category = $("#category").val();
@@ -7,6 +8,7 @@
       type: "POST",
       url: "/first",
       data: {
+        "scores_id": scores_id,
         "sex": sex,
         "age": age,
         "category": category,
