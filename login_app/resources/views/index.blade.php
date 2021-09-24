@@ -171,7 +171,7 @@
               <option>3年以上</option>
             </select>
           </div>
-          <button type="submit" class="first　btn btn-info mx-auto container mt-3" style="max-width: 100px;" >Go</button>
+          <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="first">Go</button>
         </form>
         <div id="recommend" class="container mx-auto mt-5 text-center" style="max-width: 400px; height: auto;"></div>
       </div>
@@ -329,10 +329,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="{{ asset('/js/jquery.js')}}"></script>
   <script src="{{ asset('/js/index.blade.js')}}"></script>
-  <script src="{{ asset('/js/first.js') }}"></script>
-  <script>
-    
-  </script>
+
 
 </body>
 
