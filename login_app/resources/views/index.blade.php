@@ -174,12 +174,6 @@
           <button type="submit" class="btn btn-info mx-auto container mt-3" style="max-width: 100px;" id="first">Go</button>
         </form>
         <div id="recommend" class="container mx-auto mt-5 text-center" style="max-width: 400px; height: auto;"></div>
-        @if ($sex ?? '' == "男性" )
-        <h2>DIE WITH ZERO</h2>
-        <img src="images/fr1.png">
-        <a></a>
-        @else
-        @endif
       </div>
       <div class="tab-pane fade" id="nav-channel" role="tabpanel" aria-labelledby="nav-channel-tab">
         <div>
