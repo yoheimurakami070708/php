@@ -57,6 +57,7 @@ class ScoresController extends Controller
 
         return view("home",$data);
     }
+<<<<<<< HEAD
 
     private function _sumScores() {
         //クラスのインスタンス化をしているのにL:42で静的クラスで呼び出しをかけているのは何故でしょうか？
@@ -132,6 +133,16 @@ class ScoresController extends Controller
         ];
 
         return $payload;
+=======
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+>>>>>>> 81164564df011cddeb627e127931fef248d2df25
     }
 
     /**
@@ -260,4 +271,41 @@ class ScoresController extends Controller
         $score->delete();
         return redirect()->route("home");
     }
+<<<<<<< HEAD
 }
+=======
+
+    private function sum(){
+        $score = new Score();
+        $scores = Score::all();
+        foreach ($scores as $score) {
+            $titles = $score->title;
+        }
+
+        $times = 0;
+        foreach ($scores as $score) {
+            $times += $score->time;
+        }
+        $pages = 0;
+        foreach ($scores as $score) {
+            $pages += $score->page;
+        }
+        $sum = $times + $pages;
+
+        $level = "見習い";
+        if ($sum >= 12000) {
+            $level = "歩く図書館";
+        } elseif ($sum >= 8000) {
+            $level = "本の虫";
+        } elseif ($sum >= 4000) {
+            $level = "読書家";
+        } elseif ($sum >= 2500) {
+            $level = "たまに読みます";
+        } elseif ($sum < 2500) {
+            $level = "見習い";
+        }
+        // viewとの紐付け
+        return view('home', compact('scores', 'times', 'pages', 'sum', 'level'));
+    }
+}
+>>>>>>> 81164564df011cddeb627e127931fef248d2df25
